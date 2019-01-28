@@ -1,0 +1,292 @@
+{
+  "input_datatypes": [
+    {
+      "name": "bastionhost",
+      "label": "Bastion Data"
+    }
+  ],
+  "output_datatypes": [],
+  "input_groups": [
+    {
+      "name": "ICP",
+      "label": "IBM Cloud Private Information"
+    },
+    {
+      "name": "MCM",
+      "label": "MCM Settings"
+    }
+  ],
+  "template_input_params": [
+    {
+      "name": "bastion_host",
+      "type": "string",
+      "hidden": true,
+      "description": "Bastion host for ssh proxy",
+      "default": "${bastionhost.bastion_host}",
+      "label": "Bastion host",
+      "secured": false,
+      "required": false
+    },
+    {
+      "name": "bastion_port",
+      "type": "string",
+      "hidden": true,
+      "description": "Bastion port for ssh proxy",
+      "default": "${bastionhost.bastion_port}",
+      "label": "Bastion port",
+      "secured": false,
+      "required": false
+    },
+    {
+      "name": "bastion_user",
+      "type": "string",
+      "hidden": true,
+      "description": "Bastion user for ssh proxy",
+      "default": "${bastionhost.bastion_user}",
+      "label": "Bastion user",
+      "secured": false,
+      "required": false
+    },
+    {
+      "name": "bastion_private_key",
+      "type": "string",
+      "hidden": true,
+      "description": "Bastion private key for ssh proxy",
+      "default": "${bastionhost.bastion_private_key}",
+      "label": "Bastion private key",
+      "secured": true,
+      "required": false
+    },
+    {
+      "name": "bastion_password",
+      "type": "string",
+      "hidden": true,
+      "description": "Bastion user password for ssh proxy",
+      "default": "${bastionhost.bastion_password}",
+      "label": "Bastion user password",
+      "secured": true,
+      "required": false
+    },
+    {
+      "name": "bastion_host_key",
+      "type": "string",
+      "hidden": true,
+      "description": "Bastion host public key for ssh proxy",
+      "default": "${bastionhost.bastion_host_key}",
+      "label": "Bastion host key",
+      "secured": false,
+      "required": false
+    },
+    {
+      "name": "boot_ipv4_address",
+      "description": "Boot Node IP Address",
+      "type": "string",
+      "required": true,
+      "secured": false,
+      "label": "Boot Node IP Address",
+      "hidden": false,
+      "immutable": false,
+      "group_name": "ICP"
+    },
+    {
+      "name": "master_node_ip",
+      "description": "Please provide master ip for a non-HA topology or the vip or loadbalancer ip for the HA topology",
+      "type": "string",
+      "required": true,
+      "secured": false,
+      "label": "Master Node IP Address",
+      "hidden": false,
+      "immutable": false,
+      "group_name": "ICP"
+    },
+    {
+      "name": "vm_os_user",
+      "description": "The user name to use while configuring the IBM Cloud Private Boot Node",
+      "default": "root",
+      "type": "string",
+      "required": true,
+      "secured": false,
+      "label": "Boot Node User Name",
+      "hidden": false,
+      "immutable": false,
+      "group_name": "ICP"
+    },
+    {
+      "name": "vm_os_private_key",
+      "description": "Private SSH key to use while configuring the IBM Cloud Private Boot Node (base64 encoded)",
+      "default": "",
+      "type": "string",
+      "required": false,
+      "secured": false,
+      "label": "Boot Node User Private SSH Key (base64 encoded)",
+      "hidden": false,
+      "immutable": false,
+      "group_name": "ICP"
+    },    
+    {
+      "name": "vm_os_password",
+      "description": "The user password to use while configuring the IBM Cloud Private Boot Node",
+      "type": "password",
+      "required": false,
+      "secured": true,
+      "label": "Boot Node User Password",
+      "hidden": false,
+      "immutable": false,
+      "group_name": "ICP"
+    },
+    {
+      "name": "icp_admin_user",
+      "description": "The user name to use while configuring the IBM Cloud Private",
+      "default": "admin",
+      "type": "string",
+      "required": true,
+      "secured": false,
+      "label": "ICP Admin User Name",
+      "hidden": false,
+      "immutable": false,
+      "group_name": "ICP"
+    },
+    {
+      "name": "icp_admin_user_password",
+      "description": "The user password to use while configuring the IBM Cloud Private",
+      "type": "password",
+      "required": true,
+      "secured": true,
+      "label": "ICP Admin User Password",
+      "hidden": false,
+      "immutable": false,
+      "group_name": "ICP"
+    },
+    {
+      "name": "cluster_location",
+      "description": "Cluster Folder of the deployed IBM Cloud Private",
+      "default": "/root/ibm-cloud-private-x86_64-3.1.1/cluster",
+      "type": "string",
+      "required": true,
+      "secured": false,
+      "label": "IBM Cloud Private Cluster Folder",
+      "hidden": false,
+      "immutable": false,
+      "group_name": "ICP"
+    },
+    {
+      "name": "icp_version",
+      "description": "IBM Cloud Private Version",
+      "type": "string",
+      "required": true,
+      "secured": false,
+      "label": "IBM Cloud Private Version",
+      "hidden": false,
+      "immutable": false,
+      "options": [{
+        "value": "3.1.1",
+        "label": "3.1.1",
+        "default": "true"
+        },
+        {
+          "value": "3.1.0",
+          "label": "3.1.0"
+        },
+        {
+          "value": "2.1.0.3",
+          "label": "2.1.0.3"
+        }
+      ],
+      "group_name": "ICP"
+    },
+    {
+      "name": "cluster_name",
+      "description": "Deployed IBM Cloud Private Cluster Name",
+      "default": "mycluster",
+      "type": "string",
+      "required": false,
+      "secured": false,
+      "label": "IBM Cloud Private Cluster Name",
+      "hidden": false,
+      "immutable": false,
+      "regex": "^[a-z0-9.-]{1,80}$",
+      "group_name": "ICP"
+    },
+    {
+      "name": "mcm_version",
+      "description": "MCM Version",
+      "type": "string",
+      "required": true,
+      "secured": false,
+      "label": "MCM Version",
+      "hidden": false,
+      "immutable": false,
+      "options": [
+        {
+          "value": "3.1.1",
+          "label": "3.1.1",
+          "default": true
+        },
+        {
+          "value": "3.1.0",
+          "label": "3.1.0"
+        }
+      ],
+      "group_name": "MCM"
+    },
+    {
+      "name": "mcm_binary_url",
+      "description": "Location of the MCM Binaries used by IBM Cloud Private",
+      "type": "string",
+      "required": true,
+      "secured": false,
+      "label": "MCM Download Location (http|https|ftp|file)",
+      "hidden": false,
+      "immutable": false,
+      "regex": "(https?|ftp|file)://[-A-Za-z0-9\\+&@#/%?=~_|!:,.;]*[-A-Za-z0-9\\+&@#/%=~_|]",
+      "regexdesc": "http|https|ftp|file Location to download the IBM Cloud Private Binaries",
+      "group_name": "MCM"
+    },
+    {
+      "name": "download_user",
+      "description": "Username to access a secure repository location",
+      "type": "string",
+      "required": false,
+      "secured": false,
+      "label": "Repository User Name (Optional)",
+      "hidden": false,
+      "immutable": false,
+      "group_name": "MCM"
+    },
+    {
+      "name": "download_user_password",
+      "description": "Password for the Username to access a secure repository location",
+      "type": "password",
+      "required": false,
+      "secured": true,
+      "label": "Repository User Password (Optional)",
+      "hidden": false,
+      "immutable": false,
+      "group_name": "MCM"
+    },
+    {
+      "name": "secret_name",
+      "description": "Deployed IBM Cloud Private Cluster Name",
+      "default": "mcm-secret",
+      "type": "string",
+      "required": false,
+      "secured": false,
+      "label": "IBM MCM Secret Name",
+      "hidden": false,
+      "immutable": false,
+      "regex": "^[a-z0-9.-]{1,80}$",
+      "group_name": "MCM"
+    }
+  ],
+  "template_output_params": [
+    {
+      "name": "ibm_cloud_private_master_ip",
+      "type": "url",
+      "description": "IBM Cloud Private Cluster Master Node IP.",
+      "hidden": false,
+      "label": "IBM Cloud Private Cluster Master Node IP",
+      "shortname": "IBM Cloud Private Console",
+      "secured": false
+    }
+  ]
+}
