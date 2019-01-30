@@ -78,17 +78,6 @@
       "required": false
     },
     {
-      "name": "boot_ipv4_address",
-      "description": "Boot Node IP Address",
-      "type": "string",
-      "required": true,
-      "secured": false,
-      "label": "Boot Node IP Address",
-      "hidden": false,
-      "immutable": false,
-      "group_name": "ICP"
-    },
-    {
       "name": "master_node_ip",
       "description": "Please provide master ip for a non-HA topology or the vip or loadbalancer ip for the HA topology",
       "type": "string",

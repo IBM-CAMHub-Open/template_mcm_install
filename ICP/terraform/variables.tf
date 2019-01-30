@@ -15,10 +15,6 @@ variable "vm_os_user" {
 #  default = "default"
 #}
 
-variable "boot_ipv4_address" {
-  type = "string"
-}
-
 variable "mcm_version" {
   type = "string"
   default = "3.1.1"
