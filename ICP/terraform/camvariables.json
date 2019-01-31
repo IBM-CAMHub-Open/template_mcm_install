@@ -186,7 +186,7 @@
     {
       "name": "cluster_name",
       "description": "Deployed IBM Cloud Private Cluster Name",
-      "default": "mycluster",
+      "default": "mycluster.icp",
       "type": "string",
       "required": false,
       "secured": false,
