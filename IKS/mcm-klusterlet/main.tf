@@ -45,7 +45,7 @@ resource "null_resource" "prep-cluster-dir" {
     inline = [
       "set -e",
       "cd ${local.work_dir}",
-      "sudo docker run -v $(pwd):/data -e LICENSE=accept ibmcom/mcm-inception-amd64:3.1.1-ce cp -r cluster /data"
+      "sudo docker run -v $(pwd):/data -e LICENSE=accept ibmcom/mcm-inception-amd64:3.1.1-ce cp -r /installer/cluster.iks /data/cluster"
     ]
   }
 }
@@ -148,8 +148,7 @@ resource "null_resource" "run-inception" {
     inline = [
       "set -e",
       "cd ${local.work_dir}/cluster",
-      "sudo docker run --net=host -t -e LICENSE=accept -v ${local.work_dir}/cluster:/installer/cluster ibmcom/mcm-inception-amd64:3.1.1-ce install-mcmk-on-iks -v"
+      "sudo docker run --net=host -t -e LICENSE=accept -v ${local.work_dir}/cluster:/installer/cluster ibmcom/mcm-inception-amd64:3.1.1-ce install-mcm-klusterlet -v"
     ]
   }
 }
-
