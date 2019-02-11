@@ -15,11 +15,6 @@ variable "vm_os_user" {
 #  default = "default"
 #}
 
-variable "mcm_version" {
-  type = "string"
-  default = "3.1.2"
-}
-
 variable "icp_version" {
   type = "string"
   default = "3.1.2"
@@ -44,11 +39,12 @@ variable "download_user_password" {
   type = "string"
 }
 
-variable "cluster_location" {
+variable "cluster_name" {
   type = "string"
+  default = "mycluser"
 }
 
-variable "cluster_name" {
+variable "cluster_ca_name" {
   type = "string"
   default = "mycluser.icp"
 }

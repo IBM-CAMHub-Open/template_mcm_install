@@ -147,18 +147,6 @@
       "group_name": "ICP"
     },
     {
-      "name": "cluster_location",
-      "description": "Cluster Folder of the deployed IBM Cloud Private",
-      "default": "/root/ibm-cloud-private-x86_64-3.1.2/cluster",
-      "type": "string",
-      "required": true,
-      "secured": false,
-      "label": "IBM Cloud Private Cluster Folder",
-      "hidden": false,
-      "immutable": false,
-      "group_name": "ICP"
-    },
-    {
       "name": "icp_version",
       "description": "IBM Cloud Private Version",
       "type": "string",
@@ -190,7 +178,7 @@
     {
       "name": "cluster_name",
       "description": "Deployed IBM Cloud Private Cluster Name",
-      "default": "mycluster.icp",
+      "default": "mycluster",
       "type": "string",
       "required": false,
       "secured": false,
@@ -201,31 +189,18 @@
       "group_name": "ICP"
     },
     {
-      "name": "mcm_version",
-      "description": "MCM Version",
+      "name": "cluster_ca_name",
+      "description": "Kubernetes CA domain of the cluster , like mycluster.icp",
+      "default": "mycluster.icp",
       "type": "string",
-      "required": true,
+      "required": false,
       "secured": false,
-      "label": "MCM Version",
+      "label": "IBM Cloud Private Cluster CA Name",
       "hidden": false,
       "immutable": false,
-      "options": [
-        {
-          "value": "3.1.1",
-          "label": "3.1.1"
-        },
-        {
-          "value": "3.1.0",
-          "label": "3.1.0"
-        },
-        {
-          "value": "3.1.2",
-          "label": "3.1.2",
-          "default": true
-        }
-      ],
-      "group_name": "MCM"
-    },
+      "regex": "^[a-z0-9.-]{1,80}$",
+      "group_name": "ICP"
+    },    
     {
       "name": "mcm_binary_url",
       "description": "Location of the MCM Binaries used by IBM Cloud Private",
