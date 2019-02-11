@@ -17,12 +17,12 @@ variable "vm_os_user" {
 
 variable "mcm_version" {
   type = "string"
-  default = "3.1.1"
+  default = "3.1.2"
 }
 
 variable "icp_version" {
   type = "string"
-  default = "3.1.1"
+  default = "3.1.2"
 }
  variable "icp_admin_user" {
   type = "string"

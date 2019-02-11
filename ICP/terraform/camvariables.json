@@ -106,7 +106,7 @@
       "default": "",
       "type": "string",
       "required": false,
-      "secured": false,
+      "secured": true,
       "label": "Master Node User Private SSH Key (base64 encoded)",
       "hidden": false,
       "immutable": false,
@@ -149,7 +149,7 @@
     {
       "name": "cluster_location",
       "description": "Cluster Folder of the deployed IBM Cloud Private",
-      "default": "/root/ibm-cloud-private-x86_64-3.1.1/cluster",
+      "default": "/root/ibm-cloud-private-x86_64-3.1.2/cluster",
       "type": "string",
       "required": true,
       "secured": false,
@@ -168,9 +168,13 @@
       "hidden": false,
       "immutable": false,
       "options": [{
-        "value": "3.1.1",
-        "label": "3.1.1",
+        "value": "3.1.2",
+        "label": "3.1.2",
         "default": "true"
+        },
+        {
+        "value": "3.1.1",
+        "label": "3.1.1"
         },
         {
           "value": "3.1.0",
