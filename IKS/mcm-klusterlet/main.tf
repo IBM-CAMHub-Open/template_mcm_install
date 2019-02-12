@@ -110,7 +110,8 @@ KUBECONFIG=$${WORKDIR}/$${KUBEFILE}
 
 cluster=`grep "cluster: .*" $${KUBECONFIG} | cut -f2 -d':' | tr -d '[:space:]'`
 owner=`grep "user: .*" $${KUBECONFIG} | cut -f2 -d':' | tr -d '[:space:]'`
-namespace=`grep "namespace: .*" $${KUBECONFIG} | cut -f2 -d':' | tr -d '[:space:]'`
+#namespace=`grep "namespace: .*" $${KUBECONFIG} | cut -f2 -d':' | tr -d '[:space:]'`
+namespace=mcm-${var.cluster_name}
 endpoint=${var.mcm_hub_endpoint}
 token=${var.mcm_hub_token}
 
