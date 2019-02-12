@@ -31,7 +31,7 @@ resource "null_resource" "create-temp-random-dir" {
 }
 
 module "mcm_install" {
-  source                     = "git::https://github.com/IBM-CAMHub-Open/template_mcm_modules.git?ref=2.0//config_mcm_download"
+  source                     = "git::https://github.com/IBM-CAMHub-Open/template_mcm_modules.git?ref=3.1.1//config_mcm_download"
 
   random                     = "${random_string.random-dir.result}"
   vm_os_user                 = "${var.vm_os_user}"
@@ -39,7 +39,6 @@ module "mcm_install" {
   vm_os_password             = "${var.vm_os_password}"
   master_ipv4_address        = "${var.master_node_ip}"
   mcm_binary_url             = "${var.mcm_binary_url}"
-  icp_version                = "${var.icp_version}"
   download_user              = "${var.download_user}"
   download_user_password     = "${var.download_user_password}"
   cluster_name               = "${var.cluster_name}"

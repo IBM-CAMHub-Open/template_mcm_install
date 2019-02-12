@@ -147,35 +147,6 @@
       "group_name": "ICP"
     },
     {
-      "name": "icp_version",
-      "description": "IBM Cloud Private Version",
-      "type": "string",
-      "required": true,
-      "secured": false,
-      "label": "IBM Cloud Private Version",
-      "hidden": false,
-      "immutable": false,
-      "options": [{
-        "value": "3.1.2",
-        "label": "3.1.2",
-        "default": "true"
-        },
-        {
-        "value": "3.1.1",
-        "label": "3.1.1"
-        },
-        {
-          "value": "3.1.0",
-          "label": "3.1.0"
-        },
-        {
-          "value": "2.1.0.3",
-          "label": "2.1.0.3"
-        }
-      ],
-      "group_name": "ICP"
-    },
-    {
       "name": "cluster_name",
       "description": "Deployed IBM Cloud Private Cluster Name",
       "default": "mycluster",
