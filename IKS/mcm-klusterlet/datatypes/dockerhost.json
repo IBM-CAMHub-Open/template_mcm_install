@@ -1,0 +1,43 @@
+{
+    "name": "dockerhost",
+    "label": "dockerhost",
+    "description": "Data structure describing connection details for a remote host VM capable of running Docker commands",
+    "attributes": [
+        {
+            "name": "docker_host",
+            "type": "string",
+            "description": "IP address or FQDN of remote host VM",
+            "label": "Docker host",
+            "required": "true",
+            "secured": "false",
+            "immutable": "false",
+            "hidden": "false",
+            "default": "",
+            "options": null
+        },
+        {
+            "name": "login_name",
+            "type": "string",
+            "description": "Login name for connecting to the remote host VM",
+            "label": "Login name",
+            "required": "true",
+            "secured": "false",
+            "immutable": "false",
+            "hidden": "false",
+            "default": "",
+            "options": null
+        },
+        {
+            "name": "private_key",
+            "type": "string",
+            "description": "SSH private key for login (Base64 encoded)",
+            "label": "Private key",
+            "required": "true",
+            "secured": "true",
+            "immutable": "false",
+            "hidden": "false",
+            "default": "",
+            "options": null
+        }
+    ]
+}

@@ -1,6 +1,10 @@
 {
     "input_datatypes": [
       {
+        "name": "dockerhost",
+        "label": "Remote host VM capable of running docker commands"
+      }, 
+      {
         "name": "kubeconfig",
         "label": "Kubernetes cluster data"
       } 
@@ -25,6 +29,7 @@
         "name": "docker_host",
         "type": "string",
         "description": "Docker host",
+        "default": "${dockerhost.docker_host}",
         "hidden": false,
         "label": "Docker Host",
         "secured": false,
@@ -35,7 +40,8 @@
       {
         "name": "user_name",
         "type": "string",
-        "description": "Login name for docker host",
+        "description": "Login name for connecting to the remote host VM",
+        "default": "${dockerhost.login_name}",
         "hidden": false,
         "label": "Login name",
         "secured": false,
@@ -47,9 +53,10 @@
         "name": "private_key",
         "type": "string",
         "description": "SSH private key for login (Base64 encoded)",
+        "default": "${dockerhost.private_key}",
         "hidden": false,
         "label": "Private key",
-        "secured": false,
+        "secured": true,
         "required": true,
         "immutable": false,
         "group_name": "dockerhost"
