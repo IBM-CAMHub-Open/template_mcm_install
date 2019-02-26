@@ -78,47 +78,47 @@
       "required": false
     },
     {
-      "name": "master_node_ip",
-      "description": "Please provide master ip for a non-HA topology or the vip or loadbalancer ip for the HA topology",
+      "name": "boot_node_ip",
+      "description": "IP address of the boot node",
       "type": "string",
       "required": true,
       "secured": false,
-      "label": "Master Node IP Address",
+      "label": "Boot Node IP Address",
       "hidden": false,
       "immutable": false,
       "group_name": "ICP"
     },
     {
       "name": "vm_os_user",
-      "description": "The user name to use while configuring the IBM Cloud Private Master Node",
+      "description": "The user name to use while configuring the IBM Cloud Private Boot Node",
       "default": "root",
       "type": "string",
       "required": true,
       "secured": false,
-      "label": "Master Node User Name",
+      "label": "Boot Node User Name",
       "hidden": false,
       "immutable": false,
       "group_name": "ICP"
     },
     {
       "name": "vm_os_private_key",
-      "description": "Private SSH key to use while configuring the IBM Cloud Private master node (base64 encoded)",
+      "description": "Private SSH key to use while configuring the IBM Cloud Private boot node (base64 encoded)",
       "default": "",
       "type": "string",
       "required": false,
       "secured": true,
-      "label": "Master Node User Private SSH Key (base64 encoded)",
+      "label": "Boot Node User Private SSH Key (base64 encoded)",
       "hidden": false,
       "immutable": false,
       "group_name": "ICP"
     },    
     {
       "name": "vm_os_password",
-      "description": "The user password to use while configuring the IBM Cloud Private master node. Either the password or the private key should be provided.",
+      "description": "The user password to use while configuring the IBM Cloud Private boot node. Either the password or the private key should be provided.",
       "type": "password",
       "required": false,
       "secured": true,
-      "label": "Master Node User Password",
+      "label": "Boot Node User Password",
       "hidden": false,
       "immutable": false,
       "group_name": "ICP"
@@ -236,11 +236,11 @@
   ],
   "template_output_params": [
     {
-      "name": "ibm_cloud_private_master_ip",
+      "name": "ibm_cloud_private_boot_ip",
       "type": "url",
-      "description": "IBM Cloud Private Cluster Master Node IP.",
+      "description": "IBM Cloud Private Cluster Boot Node IP.",
       "hidden": false,
-      "label": "IBM Cloud Private Cluster Master Node IP",
+      "label": "IBM Cloud Private Cluster Boot Node IP",
       "shortname": "IBM Cloud Private Console",
       "secured": false
     }

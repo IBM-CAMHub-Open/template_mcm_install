@@ -53,6 +53,6 @@ variable "secret_name" {
   type = "string"
   default = "mcm-secret"
 }
-variable "master_node_ip" {
+variable "boot_node_ip" {
   type = "string"
 }
