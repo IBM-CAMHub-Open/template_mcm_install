@@ -171,7 +171,20 @@
       "immutable": false,
       "regex": "^[a-z0-9.-]{1,80}$",
       "group_name": "ICP"
-    },    
+    },
+    {
+      "name": "cluster_docker_registry_server_name",
+      "description": "ICP internal registry server name (usually deployed on the boot server), used for loading the MCM docker images into",
+      "default": "mycluster.icp",
+      "type": "string",
+      "required": false,
+      "secured": false,
+      "label": "IBM Cloud Private Registry Server Name",
+      "hidden": false,
+      "immutable": false,
+      "regex": "^[a-z0-9.-]{1,80}$",
+      "group_name": "ICP"
+    },
     {
       "name": "mcm_binary_url",
       "description": "Location of the MCM Binaries used by IBM Cloud Private",

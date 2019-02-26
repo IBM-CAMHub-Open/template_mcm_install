@@ -44,6 +44,11 @@ variable "cluster_ca_name" {
   type = "string"
   default = "mycluser.icp"
 }
+variable "cluster_docker_registry_server_name" {
+  type = "string"
+  default = "mycluster.icp"
+}
+
 variable "secret_name" {
   type = "string"
   default = "mcm-secret"
