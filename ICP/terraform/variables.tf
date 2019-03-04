@@ -10,11 +10,6 @@ variable "vm_os_user" {
   type = "string"
 }
 
-#variable "private_ssh_key" {
-#  type = "string"
-#  default = "default"
-#}
-
  variable "icp_admin_user" {
   type = "string"
   default = "admin"

@@ -222,7 +222,7 @@
     },
     {
       "name": "secret_name",
-      "description": "Deployed IBM Cloud Private Cluster Name",
+      "description": "MCM secret name to be created on the ICP cluster",
       "default": "mcm-secret",
       "type": "string",
       "required": false,
