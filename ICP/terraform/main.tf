@@ -47,7 +47,7 @@ module "mcm_install" {
   icp_user                   = "${var.icp_admin_user}"
   icp_user_password          = "${var.icp_admin_user_password}"
   secret_name                = "${var.secret_name}"
-  #######
+  ####### Bastion host variables ##################
   bastion_host               = "${var.bastion_host}"
   bastion_user               = "${var.bastion_user}"
   bastion_private_key        = "${var.bastion_private_key}"
