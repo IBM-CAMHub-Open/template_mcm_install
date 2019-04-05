@@ -3,7 +3,7 @@ Copyright IBM Corp. 2019, 2019 \
 This code is released under the Apache 2.0 License.
 
 ## Overview
- This terraform template loads the IBM Multicloud Manager v 3.1.1 Docker images and Helm charts from an external binary (.tgz) into an existing ICP cluster. It requires access to the boot node of the cluster. After the execution of this template is done, two new helm charts named ibm-mcm-prod (MCM controller) and ibm-mcmk-prod (MCM klusterlet) will be available through the IBM Cloud Private catalog
+ This terraform template loads the IBM Multicloud Manager v 3.1.2 Docker images and Helm charts from an external binary (.tgz) into an existing ICP cluster. It requires access to the boot node of the cluster. After the execution of this template is done, two new helm charts named ibm-mcm-prod (MCM controller) and ibm-mcmk-prod (MCM klusterlet) will be available through the IBM Cloud Private catalog
 
 ## Prerequisites
 * An existing IBM Cloud Private cluster where the MCM charts will be loaded into

@@ -10,7 +10,7 @@ locals {
   work_dir = "/tmp/mcm${random_string.random-dir.result}"
   kubeconfig_data  = "${length(var.cluster_config) > 0 ? base64decode(var.cluster_config) : var.cluster_config}"
   certificate_data = "${length(var.cluster_certificate_authority) > 0 ? base64decode(var.cluster_certificate_authority) : var.cluster_certificate_authority}"
-  mcm_version = "3.1.1-ce"
+  mcm_version = "3.1.2-ce"
 }
 
 

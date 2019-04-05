@@ -14,7 +14,7 @@ IBM Cloud<br>
 <br>
 ### Software Deployed
 
-IBM Multicloud Manager Klusterlet v3.1.1<br>
+IBM Multicloud Manager Klusterlet v3.1.2<br>
 <br>
 ### Usage and Special Notes
 
