@@ -7,10 +7,6 @@
     {
       "name": "dockerhost",
       "label": "Remote host VM capable of running docker commands"
-    },
-    {
-      "name": "kubeconfig",
-      "label": "Kubernetes cluster data"
     }
   ],
   "output_datatypes": [],
@@ -28,8 +24,8 @@
       "label": "MCH Hub Cluster"
     },
     {
-      "name": "ikscluster",
-      "label": "IKS Cluster"
+      "name": "ekscluster",
+      "label": "EKS Cluster"
     }
   ],
   "template_input_params": [
@@ -160,38 +156,110 @@
     {
       "name": "cluster_name",
       "type": "string",
-      "description": "Name of the IKS cluster",
-      "default": "${kubeconfig.cluster_name}",
+      "description": "Name of the EKS cluster",
       "hidden": false,
-      "label": "IKS Cluster Name",
+      "label": "EKS Cluster Name",
       "secured": false,
       "required": true,
       "immutable": false,
-      "group_name": "ikscluster"
+      "group_name": "ekscluster"
     },
     {
-      "name": "cluster_config",
+      "name": "aws_region",
       "type": "string",
-      "description": "Cluster config file (kubectl), Base64 encoded",
-      "default": "${kubeconfig.cluster_config}",
+      "description": "AWS Region Name",
+      "default": "us-east-1",
       "hidden": false,
-      "label": "Cluster config",
+      "label": "AWS Region Name",
       "secured": false,
+      "options": [
+        {
+          "value": "us-east-1",
+          "label": "US East (N. Virginia)",
+          "default": true
+        },
+        {
+          "value": "us-east-2",
+          "label": "US East (Ohio)"
+        },
+        {
+          "value": "us-west-1",
+          "label": "US West (N. California)"
+        },
+        {
+          "value": "us-west-2",
+          "label": "US West (Oregon)"
+        },
+        {
+          "value": "us-gov-west-1",
+          "label": "US GovCloud Region"
+        },
+        {
+          "value": "ca-central-1",
+          "label": "Canada (Central)"
+        },
+        {
+          "value": "eu-west-1",
+          "label": "EU (Ireland)"
+        },
+        {
+          "value": "eu-central-1",
+          "label": "EU (Frankfurt)"
+        },
+        {
+          "value": "eu-west-2",
+          "label": "EU (London)"
+        },
+        {
+          "value": "ap-northeast-1",
+          "label": "Asia Pacific (Tokyo)"
+        },
+        {
+          "value": "ap-northeast-2",
+          "label": "Asia Pacific (Seoul)"
+        },
+        {
+          "value": "ap-southeast-1",
+          "label": "Asia Pacific (Singapore)"
+        },
+        {
+          "value": "ap-southeast-2",
+          "label": "Asia Pacific (Sydney)"
+        },
+        {
+          "value": "ap-south-1",
+          "label": "Asia Pacific (Mumbai)"
+        },
+        {
+          "value": "sa-east-1",
+          "label": "South America (Sao Paulo)"
+        }
+      ],
       "required": true,
       "immutable": false,
-      "group_name": "ikscluster"
+      "group_name": "ekscluster"
     },
     {
-      "name": "cluster_certificate_authority",
+      "name": "access_key_id",
       "type": "string",
-      "description": "Cluster certificate authority, Base64 encoded",
-      "default": "${kubeconfig.cluster_certificate_authority}",
+      "description": "Access key ID for Amazon EC2 cloud",
       "hidden": false,
-      "label": "Cluster Certificate Authority",
+      "label": "Access Key ID",
       "secured": false,
       "required": true,
       "immutable": false,
-      "group_name": "ikscluster"
+      "group_name": "ekscluster"
+    },
+    {
+      "name": "secret_access_key",
+      "type": "password",
+      "description": "Secret access key for Amazon EC2 cloud",
+      "hidden": false,
+      "label": "Secret Access Key",
+      "secured": false,
+      "required": true,
+      "immutable": false,
+      "group_name": "ekscluster"
     }
   ],
   "template_output_params": []

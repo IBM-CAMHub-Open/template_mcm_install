@@ -28,8 +28,8 @@
       "label": "MCH Hub Cluster"
     },
     {
-      "name": "ikscluster",
-      "label": "IKS Cluster"
+      "name": "akscluster",
+      "label": "AKS Cluster"
     }
   ],
   "template_input_params": [
@@ -160,14 +160,14 @@
     {
       "name": "cluster_name",
       "type": "string",
-      "description": "Name of the IKS cluster",
+      "description": "Name of the AKS cluster",
       "default": "${kubeconfig.cluster_name}",
       "hidden": false,
-      "label": "IKS Cluster Name",
+      "label": "AKS Cluster Name",
       "secured": false,
       "required": true,
       "immutable": false,
-      "group_name": "ikscluster"
+      "group_name": "akscluster"
     },
     {
       "name": "cluster_config",
@@ -179,19 +179,18 @@
       "secured": false,
       "required": true,
       "immutable": false,
-      "group_name": "ikscluster"
+      "group_name": "akscluster"
     },
     {
-      "name": "cluster_certificate_authority",
+      "name": "cluster_location",
       "type": "string",
-      "description": "Cluster certificate authority, Base64 encoded",
-      "default": "${kubeconfig.cluster_certificate_authority}",
+      "description": "Location where the AKS cluster is deployed",
       "hidden": false,
-      "label": "Cluster Certificate Authority",
+      "label": "Cluster Location",
       "secured": false,
       "required": true,
       "immutable": false,
-      "group_name": "ikscluster"
+      "group_name": "akscluster"
     }
   ],
   "template_output_params": []

@@ -1,6 +1,6 @@
 {
-  "name": "MCM Klusterlet within IBM Cloud Kubernetes Service",
-  "description": "MCM Klusterlet within IBM Cloud Kubernetes Service",
+  "name": "MCM Klusterlet within Google Kubernetes Engine",
+  "description": "MCM Klusterlet within Google Kubernetes Engine",
   "version": "1.0",
   "type": "prebuilt",
   "manifest": {
@@ -15,14 +15,14 @@
     "template_source": {
       "githubRepoUrl": "",
       "githubAccessToken": "",
-      "relativePathToTemplateFolder": "IKS/mcm-klusterlet",
+      "relativePathToTemplateFolder": "GKE/mcm-klusterlet",
       "templateFileName": "main.tf"
     }
   },
   "metadata": {
-    "displayName": "MCM Klusterlet within IBM Cloud Kubernetes Service",
+    "displayName": "MCM Klusterlet within Google Kubernetes Engine",
     "providerDisplayName": "Other",
-    "longDescription": "MCM Klusterlet to be deployed in IBM Cloud Kubernetes Service",
+    "longDescription": "MCM Klusterlet to be deployed in Google Kubernetes Engine",
     "bullets": [
       {
         "title": "Clouds",

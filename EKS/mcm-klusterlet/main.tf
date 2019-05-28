@@ -2,13 +2,14 @@ module "klusterlet" {
   source  = "git::https://github.com/IBM-CAMHub-Open/template_mcm_modules.git?ref=3.1.2//mcm_klusterlet"
   
   mcm_version         = "3.1.2-ce"
-  kubernetes_service  = "iks"
+  kubernetes_service  = "eks"
   
-  cluster_name                  = "${var.cluster_name}"
-  cluster_config                = "${var.cluster_config}"
-  cluster_certificate_authority = "${var.cluster_certificate_authority}"
-  mcm_hub_endpoint              = "${var.mcm_hub_endpoint}"
-  mcm_hub_token                 = "${var.mcm_hub_token}"
+  cluster_name        = "${var.cluster_name}"
+  cluster_location    = "${var.aws_region}"
+  access_key_id       = "${var.access_key_id}"
+  access_key_secret   = "${var.secret_access_key}"
+  mcm_hub_endpoint    = "${var.mcm_hub_endpoint}"
+  mcm_hub_token       = "${var.mcm_hub_token}"
   
   docker_host         = "${var.docker_host}"
   user_name           = "${var.user_name}"
