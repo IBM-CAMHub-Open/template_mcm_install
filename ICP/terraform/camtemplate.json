@@ -1,6 +1,6 @@
 {
     "name": "IBM Multicloud Manager",
-    "description": "This template will install IBM Multicloud Manager",
+    "description": "This template will load the IBM Multicloud Manager(MCM) Klusterlet docker images and Helm chart into a Kubernetes cluster",
     "version": "1.0",
     "imageUrl": "",
     "image": "",
@@ -25,7 +25,7 @@
     "metadata": {
       "displayName": "IBM Multicloud Manager",
       "providerDisplayName": "",
-      "longDescription": "This template will install IBM Multicloud Manager",
+      "longDescription": "This template will load the IBM Multicloud Manager(MCM) Klusterlet docker images and Helm chart into a Kubernetes cluster",
       "bullets": [
 {
     "title": "Usage and Special Notes",

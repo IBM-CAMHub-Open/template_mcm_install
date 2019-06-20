@@ -11,15 +11,15 @@ variable "private_key" {
 }
 
 variable "cluster_name" {
-  description = "Name of the IKS cluster"
+  description = "Name of the Kubernetes Service cluster"
 }
 
 variable "cluster_config" {
   description = "kubectl configuration text, Base64 encoded"
 }
 
-variable "cluster_certificate_authority" {
-  description = "Certificate for authenticating with IKS cluster"
+variable "cluster_location" {
+  description = "Location where Kubernetes Service cluster is installed"
 }
 
 variable "mcm_hub_endpoint" {

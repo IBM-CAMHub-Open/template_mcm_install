@@ -1,14 +1,16 @@
+
 module "klusterlet" {
   source  = "git::https://github.com/IBM-CAMHub-Open/template_mcm_modules.git?ref=3.1.1//mcm_klusterlet"
   
   mcm_version         = "3.1.1-ce"
-  kubernetes_service  = "iks"
+  kubernetes_service  = "gke"
   
-  cluster_name                  = "${var.cluster_name}"
-  cluster_config                = "${var.cluster_config}"
-  cluster_certificate_authority = "${var.cluster_certificate_authority}"
-  mcm_hub_endpoint              = "${var.mcm_hub_endpoint}"
-  mcm_hub_token                 = "${var.mcm_hub_token}"
+  cluster_name        = "${var.cluster_name}"
+  service_account_key = "${var.service_account_key}"
+  cluster_location    = "${var.zone}"
+  cluster_project     = "${var.project}"
+  mcm_hub_endpoint    = "${var.mcm_hub_endpoint}"
+  mcm_hub_token       = "${var.mcm_hub_token}"
   
   docker_host         = "${var.docker_host}"
   user_name           = "${var.user_name}"
