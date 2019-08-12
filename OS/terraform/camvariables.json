@@ -205,7 +205,6 @@
 		}, {
 			"name": "rhsm_user",
 			"description": "RedHat Subscription Manager user name for downloading OC CLI.",
-			"default": "",
 			"type": "string",
 			"required": true,
 			"secured": false,

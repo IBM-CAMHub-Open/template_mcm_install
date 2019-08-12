@@ -327,5 +327,13 @@
 			"group_name": "cluster"
 		}
 	],
-	"template_output_params": []
+	"template_output_params": [
+		{
+			"name": "cluster_import_yaml",
+			"description": "If input to Managed ICP Install Directory was empty, then append contents to Managed ICP config.yaml file",
+			"type": "string",
+			"label": "Base64 Encoded Cluster Import YAML contents.",
+			"hidden": false
+		}
+	]
 }
