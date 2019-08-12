@@ -1,6 +1,6 @@
 {
-    "name": "IBM Multicloud Manager Klusterlet on IBM Cloud Private",
-    "description": "This terraform template imports an existing IBM Cloud Private cluster to a IBM Multicloud Manager Controller (Hub Cluster).",
+    "name": "IBM Multicloud Manager Klusterlet on OpenShift",
+    "description": "This terraform template imports an existing OpenShift Cluster to a IBM Multicloud Manager Controller (Hub Cluster).",
     "version": "3.2.0",
     "imageUrl": "",
     "image": "",
@@ -18,13 +18,13 @@
       "template_source": {
         "githubRepoUrl": "",
         "githubAccessToken": "",
-        "relativePathToTemplateFolder": "ICP/terraform",
+        "relativePathToTemplateFolder": "OC/terraform",
         "templateFileName": "main.tf"
       }
     },
     "metadata": {
       "providerDisplayName": "",
-      "longDescription": "This terraform template imports an existing IBM Cloud Private cluster to a IBM Multicloud Manager Controller (Hub Cluster).",
+      "longDescription": "This terraform template imports an existing OpenShift Cluster to a IBM Multicloud Manager Controller (Hub Cluster).",
       "bullets": [
 {
     "title": "Usage and Special Notes",
@@ -32,7 +32,7 @@
 },
 {
   "title": "Operating Systems Supported",
-  "description": "Ubuntu 16<br>RHEL<br>"}
+  "description": "RHEL<br>"}
 ],
       "featuredImageUrl": "",
       "imageUrl": "",

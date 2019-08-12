@@ -14,61 +14,20 @@ variable "vm_os_private_key" {
   type = "string"
 }
 
-variable "cluster_server_host" {
-  type = "string"
-}
-
-variable "cluster_name" {
-  type = "string"
-  default = "mycluster"
-}
-
  variable "admin_user" {
   type = "string"
   default = "admin"
-}
-
-variable "admin_user_password" {
-  type = "string"
-}
-
-variable "icp_management_port"{
- 	type = "string"
- 	default = "8443"
-}
-
-variable "icp_inception_image"{
- 	type = "string"
- 	default = "ibmcom/icp-inception-amd64:3.2.0-ee"
-}
-
-variable "icp_dir" {
-  type = "string"
 }
 
 variable "man_cluster_on_hub" {
   type = "string"
 }
 
-###
-#Docker Registry
-###
-
-variable "cluster_docker_registry_server_name" {
-  type = "string"
-  default = "mycluster.icp"
-}
-
-variable "cluster_docker_registry_server_port" {
-  type = "string"
-  default = "8500"
-}
-
-variable "cluster_docker_registry_server_ca_crt" {
+variable "rhsm_user" {
   type = "string"
 }
 
-variable "cluster_docker_registry_server_ip" {
+variable "rhsm_password" {
   type = "string"
 }
 

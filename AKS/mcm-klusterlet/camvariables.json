@@ -10,7 +10,7 @@
     },
     {
       "name": "mcmcontroller",
-      "label": "MCM hub-cluster data"
+      "label": "Connection details for MCM API endpoint and host ICP API server"
     }
   ],
   "output_datatypes": [],
@@ -20,12 +20,12 @@
       "label": "Bastion host variables"
     },
     {
-      "name": "ikscluster",
-      "label": "IKS Cluster"
+      "name": "akscluster",
+      "label": "AKS Cluster"
     },
     {
       "name": "mcmhub",
-      "label": "MCM Hub Cluster"
+      "label": "MCH Hub Cluster"
     }
   ],
   "template_input_params": [
@@ -99,48 +99,48 @@
       "name": "icp_url",
       "type": "string",
       "description": "URL for ICP API Server",
+      "default": "${mcmcontroller.icp_url}",
       "hidden": false,
       "label": "ICP URL",
       "secured": false,
       "required": true,
       "immutable": false,
-      "default": "${mcmcontroller.icp_url}",
       "group_name": "mcmhub"
     },
     {
       "name": "icp_admin_user",
       "type": "string",
       "description": "Username for connecting to the ICP API server",
+      "default": "${mcmcontroller.icp_admin_user}",
       "hidden": false,
       "label": "ICP Admin User Name",
       "secured": false,
       "required": true,
       "immutable": false,
-      "default": "${mcmcontroller.icp_admin_user}",
       "group_name": "mcmhub"
     },
     {
       "name": "icp_admin_password",
       "type": "password",
       "description": "Password for connecting to the ICP API server",
+      "default": "${mcmcontroller.icp_admin_password}",
       "hidden": false,
       "label": "ICP Admin User Password",
       "secured": true,
       "required": true,
       "immutable": false,
-      "default": "${mcmcontroller.icp_admin_password}",
       "group_name": "mcmhub"
     },
     {
       "name": "mcm_hub_endpoint",
       "type": "string",
-      "description": "API endpoint of MCM hub cluster",
+      "description": "API endpoint for MCM hub cluster",
+      "default": "${mcmcontroller.mcm_hub_endpoint}",
       "hidden": false,
-      "label": "MCM API endpoint",
+      "label": "MCM API Endpoint",
       "secured": false,
       "required": true,
       "immutable": false,
-      "default": "${mcmcontroller.mcm_hub_endpoint}",
       "group_name": "mcmhub"
     },
     {
@@ -168,14 +168,14 @@
     {
       "name": "cluster_name",
       "type": "string",
-      "description": "Name of the IKS cluster",
+      "description": "Name of the AKS cluster",
       "default": "${kubeconfig.cluster_name}",
       "hidden": false,
-      "label": "IKS Cluster Name",
+      "label": "AKS Cluster Name",
       "secured": false,
       "required": true,
       "immutable": false,
-      "group_name": "ikscluster"
+      "group_name": "akscluster"
     },
     {
       "name": "cluster_config",
@@ -187,19 +187,7 @@
       "secured": true,
       "required": true,
       "immutable": false,
-      "group_name": "ikscluster"
-    },
-    {
-      "name": "cluster_certificate_authority",
-      "type": "string",
-      "description": "Cluster certificate authority, Base64 encoded",
-      "default": "${kubeconfig.cluster_certificate_authority}",
-      "hidden": false,
-      "label": "Cluster Certificate Authority",
-      "secured": true,
-      "required": true,
-      "immutable": false,
-      "group_name": "ikscluster"
+      "group_name": "akscluster"
     }
   ],
   "template_output_params": []
