@@ -9,7 +9,7 @@
       "label": "Kubernetes cluster data"
     },
     {
-      "name": "mcmcontroller",
+      "name": "mcm_controller",
       "label": "Connection details for MCM API endpoint and host ICP API server"
     }
   ],
@@ -99,7 +99,7 @@
       "name": "icp_url",
       "type": "string",
       "description": "URL for ICP API Server",
-      "default": "${mcmcontroller.icp_url}",
+      "default": "${mcm_controller.icp_url}",
       "hidden": false,
       "label": "ICP URL",
       "secured": false,
@@ -111,7 +111,7 @@
       "name": "icp_admin_user",
       "type": "string",
       "description": "Username for connecting to the ICP API server",
-      "default": "${mcmcontroller.icp_admin_user}",
+      "default": "${mcm_controller.icp_admin_user}",
       "hidden": false,
       "label": "ICP Admin User Name",
       "secured": false,
@@ -123,7 +123,7 @@
       "name": "icp_admin_password",
       "type": "password",
       "description": "Password for connecting to the ICP API server",
-      "default": "${mcmcontroller.icp_admin_password}",
+      "default": "${mcm_controller.icp_admin_password}",
       "hidden": false,
       "label": "ICP Admin User Password",
       "secured": true,
@@ -135,7 +135,7 @@
       "name": "mcm_hub_endpoint",
       "type": "string",
       "description": "API endpoint for MCM hub cluster",
-      "default": "${mcmcontroller.mcm_hub_endpoint}",
+      "default": "${mcm_controller.mcm_hub_endpoint}",
       "hidden": false,
       "label": "MCM API Endpoint",
       "secured": false,

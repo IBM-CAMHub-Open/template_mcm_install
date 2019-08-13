@@ -9,7 +9,7 @@
       "label": "Kubernetes cluster data"
     },
     {
-      "name": "mcmcontroller",
+      "name": "mcm_controller",
       "label": "MCM hub-cluster data"
     }
   ],
@@ -104,7 +104,7 @@
       "secured": false,
       "required": true,
       "immutable": false,
-      "default": "${mcmcontroller.icp_url}",
+      "default": "${mcm_controller.icp_url}",
       "group_name": "mcmhub"
     },
     {
@@ -116,7 +116,7 @@
       "secured": false,
       "required": true,
       "immutable": false,
-      "default": "${mcmcontroller.icp_admin_user}",
+      "default": "${mcm_controller.icp_admin_user}",
       "group_name": "mcmhub"
     },
     {
@@ -128,7 +128,7 @@
       "secured": true,
       "required": true,
       "immutable": false,
-      "default": "${mcmcontroller.icp_admin_password}",
+      "default": "${mcm_controller.icp_admin_password}",
       "group_name": "mcmhub"
     },
     {
@@ -140,7 +140,7 @@
       "secured": false,
       "required": true,
       "immutable": false,
-      "default": "${mcmcontroller.mcm_hub_endpoint}",
+      "default": "${mcm_controller.mcm_hub_endpoint}",
       "group_name": "mcmhub"
     },
     {
