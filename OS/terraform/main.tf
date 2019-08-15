@@ -5,17 +5,18 @@ module "mcm_import" {
   vm_os_password             			= "${var.vm_os_password}"
   vm_os_private_key             		= "${var.vm_os_private_key}"  
   admin_user             				= "${var.admin_user}"
+  admin_pass             				= "${var.admin_pass}"
+  ocp_server_url             			= "${var.ocp_server_url}"
   man_cluster_on_hub            		= "${var.man_cluster_on_hub}"
   rhsm_user            					= "${var.rhsm_user}"          
   rhsm_password            				= "${var.rhsm_password}"  
   #######
-  mcm_controller_server_name           	= "${var.mcm_controller_server_name}"
-  mcm_controller_management_port    	= "${var.mcm_controller_management_port}"  
+  mcm_controller_server_name           	= "${var.mcm_controller_server_name}" 
   mcm_controller_admin_user             = "${var.mcm_controller_admin_user}"
   mcm_controller_admin_user_password    = "${var.mcm_controller_admin_user_password}"
   #######
-  cluster_config						= "${var.cluster_config}"
-  cluster_certificate_authority			= "${var.cluster_certificate_authority}"
+  #cluster_config						= "${var.cluster_config}"
+  #cluster_certificate_authority			= "${var.cluster_certificate_authority}"
   #######
   bastion_host               = "${var.bastion_host}"
   bastion_user               = "${var.bastion_user}"

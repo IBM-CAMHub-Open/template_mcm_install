@@ -1,13 +1,13 @@
 {
   "name": "mcm_controller",
-  "label": "mcm_controller",
-  "description": "Data structure describing connection details for an IBM Multicloud Manager Controller and its host IBM Cloud Private server",
+  "label": "IBM MCM Controller Definition",
+  "description": "Data structure describing connection details for an IBM Multicloud Manager Controller.",
   "attributes": [
     {
       "name": "icp_url",
       "type": "string",
-      "description": "URL for ICP API Server",
-      "label": "ICP URL",
+      "description": "IBM MCM Controller management console URL. Example https://<hostname>:<port>.",
+      "label": "IBM MCM Controller Management Console URL",
       "required": true,
       "secured": false,
       "immutable": false,
@@ -18,8 +18,8 @@
     {
       "name": "icp_admin_user",
       "type": "string",
-      "description": "Username for connecting to the ICP API server",
-      "label": "ICP Admin User Name",
+      "description": "Username for connecting to the IBM MCM Controller management console.",
+      "label": "IBM MCM Controller Admin User Name",
       "required": true,
       "secured": false,
       "immutable": false,
@@ -30,8 +30,8 @@
     {
       "name": "icp_admin_password",
       "type": "password",
-      "description": "Password for connecting to the ICP API server",
-      "label": "ICP Admin User Password",
+      "description": "Password for connecting to the IBM MCM Controller management console.",
+      "label": "IBM MCM Controller Admin User Password",
       "required": true,
       "secured": true,
       "immutable": false,
@@ -42,8 +42,8 @@
     {
       "name": "mcm_hub_endpoint",
       "type": "string",
-      "description": "API endpoint of MCM hub cluster",
-      "label": "MCM API endpoint",
+      "description": "API endpoint of IBM MCM Controller. Example https://<hostname>:<port>.",
+      "label": "IBM MCM Controller API endpoint",
       "required": true,
       "secured": false,
       "immutable": false,

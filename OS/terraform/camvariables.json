@@ -4,10 +4,7 @@
 			"name": "bastionhost",
 			"label": "Bastion Data"
 		}, {
-			"name": "kubeconfig",
-			"label": "Managed Cluster Kubernetes Configuration"
-		}, {
-			"name": "mcm_controller_defn",
+			"name": "mcm_controller",
 			"label": "Target IBM MCM Controller"
 		}
 	],
@@ -77,64 +74,33 @@
 			"secured": false,
 			"required": false
 		}, {
-			"name": "cluster_config",
-			"type": "string",
-			"hidden": true,
-			"description": "Kube cluster config",
-			"default": "${kubeconfig.cluster_config}",
-			"label": "Kubernetes Cluster Configuration",
-			"secured": false,
-			"required": true
-		}, {
-			"name": "cluster_certificate_authority",
-			"type": "string",
-			"hidden": true,
-			"description": "Kube cluster CA cert",
-			"default": "${kubeconfig.cluster_certificate_authority}",
-			"label": "Kubernetes Cluster CA Certificate",
-			"required": true
-		}, {
 			"name": "mcm_controller_server_name",
-			"default": "${mcm_controller_defn.server_name}",
-			"description": "Server name of a IBM MCM Controller to register the managed OpenShift cluster.",
+			"default": "${mcm_controller.icp_url}",
+			"description": "Server name of a IBM MCM controller to register the managed OpenShift cluster.",
 			"type": "string",
 			"required": true,
 			"secured": false,
-			"label": "Server name of IBM MCM Controller.",
+			"label": "Server name of IBM MCM controller.",
 			"hidden": true,
-			"immutable": false,
-			"regex": "^[a-z0-9.-]{1,80}$",
-			"regexdesc": "Server name must be alpha numeric and can have dots and dash. Maximum length is 80 characters."
-		}, {
-			"name": "mcm_controller_management_port",
-			"default": "${mcm_controller_defn.management_port}",
-			"description": "Management console port of a IBM MCM Controller.",
-			"type": "string",
-			"required": true,
-			"secured": false,
-			"label": "IBM MCM Controller management console port",
-			"hidden": true,
-			"immutable": false,
-			"regexdesc": "Must be an integer value between 0 and 65535.",
-			"regex": "^([0]|[1-9][0-9]{0,3}|[1-5][0-9]{4}|6[0-4][0-9]{3}|65[0-4][0-9]{2}|655[0-2][0-9]|6553[0-5])$"
+			"immutable": false
 		}, {
 			"name": "mcm_controller_admin_user",
-			"default": "${mcm_controller_defn.admin_user}",
-			"description": "IBM MCM Controller administrator user name.",
+			"default": "${mcm_controller.icp_admin_user}",
+			"description": "IBM MCM controller administrator user name.",
 			"type": "string",
 			"required": true,
 			"secured": false,
-			"label": "IBM MCM Controller Admin User Name",
+			"label": "IBM MCM controller Admin User Name",
 			"hidden": true,
 			"immutable": false
 		}, {
 			"name": "mcm_controller_admin_user_password",
-			"default": "${mcm_controller_defn.admin_user_password}",
-			"description": "IBM MCM Controller administrator password.",
-			"type": "password",
+			"default": "${mcm_controller.icp_admin_password}",
+			"description": "IBM MCM controller administrator password.",
+			"type": "string",
 			"required": true,
 			"secured": true,
-			"label": "IBM MCM Controller Admin Password",
+			"label": "IBM MCM controller Admin Password",
 			"hidden": true,
 			"immutable": false
 		}, {
@@ -161,7 +127,7 @@
 		}, {
 			"name": "vm_os_password",
 			"description": "The user password to connect to the import launch node. Either the password or the private key should be provided.",
-			"type": "password",
+			"type": "string",
 			"required": false,
 			"secured": true,
 			"label": "Import Launch Node User Password",
@@ -182,6 +148,16 @@
 			"regexdesc": "Value must be a base64 encoded string. Can contain A-Z, a-z, and 0-9, and padding = characters.",
 			"group_name": "node"
 		}, {
+			"name": "ocp_server_url",
+			"description": "OpenShift Server URL with port. Example: https://a.b.c:8443",
+			"type": "string",
+			"required": true,
+			"secured": false,
+			"label": "OpenShift Server URL",
+			"hidden": false,
+			"immutable": false,
+			"group_name": "cluster"
+		},{
 			"name": "admin_user",
 			"description": "OpenShift administrator user name.",
 			"default": "admin",
@@ -193,6 +169,17 @@
 			"immutable": false,
 			"group_name": "cluster"
 		}, {
+			"name": "admin_pass",
+			"description": "OpenShift administrator user password.",
+			"default": "admin",
+			"type": "string",
+			"required": true,
+			"secured": true,
+			"label": "OpenShift Admin User Password",
+			"hidden": false,
+			"immutable": false,
+			"group_name": "cluster"
+		},{
 			"name": "man_cluster_on_hub",
 			"description": "Name that will be used to identify the managed cluster on the IBM MCM Controller.",
 			"type": "string",
@@ -215,7 +202,7 @@
 		}, {
 			"name": "rhsm_password",
 			"description": "RedHat Subscription Manager user password for downloading OC CLI.",
-			"type": "password",
+			"type": "string",
 			"required": true,
 			"secured": true,
 			"label": "RedHat Subscription Manager user password",

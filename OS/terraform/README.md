@@ -23,7 +23,9 @@ Import Launch Node IP| IP address of the node to execute import of a OpenShift c
 Import Launch Node User Name | The user name to connect to the import launch node.
 Import Launch Node User Private SSH Key (optional)| Base64 encoded private SSH key to connect to the import launch node. Either the password or the private key should be provided.
 Import Launch Node User Password (optional)| The user password to connect to the import launch node. Either the password or the private key should be provided.
-Managed OpenShift Admin User Name| OpenShift administrator user name.
+OpenShift Admin User Name | OpenShift administrator user name.
+OpenShift Admin User Password | OpenShift administrator user password.
 Managed cluster name on IBM MCM Controller | Name that will be used to identify the managed cluster on the IBM MCM Controller.
 RedHat Subscription Manager user name | RedHat Subscription Manager user name for downloading OC CLI.
 RedHat Subscription Manager user password | RedHat Subscription Manager user password for downloading OC CLI.
+OpenShift Server URL | OpenShift Server URL with port. Example: https://a.b.c:8443

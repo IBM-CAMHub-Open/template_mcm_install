@@ -14,9 +14,16 @@ variable "vm_os_private_key" {
   type = "string"
 }
 
- variable "admin_user" {
+variable "admin_user" {
   type = "string"
-  default = "admin"
+}
+
+variable "admin_pass" {
+  type = "string"
+}
+
+variable "ocp_server_url" {
+  type = "string"
 }
 
 variable "man_cluster_on_hub" {
@@ -34,26 +41,21 @@ variable "rhsm_password" {
 ###
 #Kubeconfig DT variables
 ###
-variable "cluster_config" {
-  description = "kubeconfig details for managed cluster"
-  default = ""
-}
+#variable "cluster_config" {
+#  description = "kubeconfig details for managed cluster"
+# default = ""
+#}
 
-variable "cluster_certificate_authority" {
-  description = "Certificate for authenticating with managed cluster"
-  default = ""
-}
+#variable "cluster_certificate_authority" {
+#  description = "Certificate for authenticating with managed cluster"
+#  default = ""
+#}
 
 ###
 #Hub DT variables
 ###
 variable "mcm_controller_server_name" {
   type = "string"
-}
-
-variable "mcm_controller_management_port" {
-  type = "string"
-  default = "8443"
 }
 
 variable "mcm_controller_admin_user" {
