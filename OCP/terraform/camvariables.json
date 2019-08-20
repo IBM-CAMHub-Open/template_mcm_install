@@ -6,6 +6,10 @@
 		}, {
 			"name": "mcm_controller",
 			"label": "Target IBM MCM Controller"
+		},
+		{
+			"name": "redhat_subscription",
+			"label": "RedHat Subscription"
 		}
 	],
 	"output_datatypes": [],
@@ -188,28 +192,33 @@
 			"label": "Managed cluster name on IBM MCM Controller",
 			"hidden": false,
 			"immutable": false,
+			"regex": "^([a-z0-9]([-a-z0-9]*[a-z0-9])?)$",
+			"regexdesc": "Name must consist of lower case alphanumeric characters or '-', and must start and end with an alphanumeric character.",			
 			"group_name": "cluster"
 		}, {
 			"name": "rhsm_user",
-			"description": "RedHat Subscription Manager user name for downloading OC CLI.",
+			"description": "Red Hat Subscription Manager Account Username",
+			"default": "${redhat_subscription.username}",
 			"type": "string",
 			"required": true,
 			"secured": false,
-			"label": "RedHat Subscription Manager user name",
+			"label": "Red Hat Subscription Manager Account Username",
 			"hidden": false,
 			"immutable": false,
 			"group_name": "cluster"
-		}, {
+		  },
+		  {
 			"name": "rhsm_password",
-			"description": "RedHat Subscription Manager user password for downloading OC CLI.",
+			"description": "Red Hat Subscription Manager Account Password",
+			"default": "${redhat_subscription.password}",
 			"type": "string",
 			"required": true,
 			"secured": true,
-			"label": "RedHat Subscription Manager user password",
+			"label": "Red Hat Subscription Manager Account Password",
 			"hidden": false,
 			"immutable": false,
 			"group_name": "cluster"
-		}
+		  }
 	],
 	"template_output_params": []
 }

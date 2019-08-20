@@ -224,8 +224,8 @@
 			"label": "Managed ICP name to set on the target IBM MCM controller",
 			"hidden": false,
 			"immutable": false,
-			"regex": "^[a-z0-9.-]{1,80}$",
-			"regexdesc": "Name must be alpha numeric and can have dots and dash. Maximum length is 80 characters.",
+			"regex": "^([a-z0-9]([-a-z0-9]*[a-z0-9])?)$",
+			"regexdesc": "Name must consist of lower case alphanumeric characters or '-', and must start and end with an alphanumeric character.",
 			"group_name": "cluster"
 		}, {
 			"name": "cluster_docker_registry_server_name",
