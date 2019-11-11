@@ -1,0 +1,46 @@
+{
+    "name": "IBM Multicloud Manager Klusterlet on IBM Cloud Private With OpenShift",
+    "description": "This terraform template imports an existing IBM Cloud Private cluster on OpenShift to a IBM Multicloud Manager Controller (Hub Cluster).",
+    "version": "3.2.0",
+    "imageUrl": "",
+    "image": "",
+    "type": "prebuilt",
+    "status": "active",
+    "manifest": {
+      "template_type": "Terraform",
+      "template_format": "HCL",
+      "template_provider": "Other",
+      "template": {
+        "templateData": "",
+        "templateVariables": "",
+        "templateOutput": ""
+      },
+      "template_source": {
+        "githubRepoUrl": "",
+        "githubAccessToken": "",
+        "relativePathToTemplateFolder": "OCP/terraform",
+        "templateFileName": "main.tf"
+      }
+    },
+    "metadata": {
+      "providerDisplayName": "",
+      "longDescription": "This terraform template imports an existing IBM Cloud Private cluster on OpenShift to a IBM Multicloud Manager Controller (Hub Cluster).",
+      "bullets": [
+{
+    "title": "Usage and Special Notes",
+    "description": "1. IBM Knowledge Center for IBM Cloud Private - <a href=\"https://www.ibm.com/support/knowledgecenter/en/SSBS6K/product_welcome_cloud_private.html\" target=\"_blank\">https://www.ibm.com/support/knowledgecenter/en/SSBS6K/product_welcome_cloud_private.html</a><br>2. IBM Support Portal - <a href=\"https://www.ibm.com/support/home/\" target=\"_blank\">https://www.ibm.com/support/home/</a><br>"
+},
+{
+  "title": "Operating Systems Supported",
+  "description": "RHEL<br>"}
+],
+      "featuredImageUrl": "",
+      "imageUrl": "",
+      "mediumImageUrl": "",
+      "smallImageUrl": "",
+      "documentationUrl": "",
+      "termsUrl": "",
+      "media": [
+      ]
+    }
+}
