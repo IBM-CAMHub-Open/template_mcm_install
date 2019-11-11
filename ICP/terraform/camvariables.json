@@ -1,25 +1,39 @@
 {
+  "terraform_engine": "~> 0.11.0",
   "input_datatypes": [
     {
       "name": "bastionhost",
       "label": "Bastion Data"
+    },
+    {
+      "name": "mcm_controller",
+      "label": "Connection details for MCM API endpoint and host ICP API server"
     }
   ],
   "output_datatypes": [],
   "input_groups": [
     {
-      "name": "ICP",
-      "label": "IBM Cloud Private Information"
+      "name": "bastion",
+      "label": "Bastion host variables"
     },
     {
-      "name": "MCM",
-      "label": "MCM Settings"
+      "name": "kubecluster",
+      "label": "Kubernetes Cluster"
+    },
+    {
+      "name": "mcmhub",
+      "label": "MCH Hub Cluster"
+    },
+    {
+      "name": "registry",
+      "label": "Private Image Registry"
     }
   ],
   "template_input_params": [
     {
       "name": "bastion_host",
       "type": "string",
+      "group_name": "bastion",
       "hidden": true,
       "description": "Bastion host for ssh proxy",
       "default": "${bastionhost.bastion_host}",
@@ -30,6 +44,7 @@
     {
       "name": "bastion_port",
       "type": "string",
+      "group_name": "bastion",
       "hidden": true,
       "description": "Bastion port for ssh proxy",
       "default": "${bastionhost.bastion_port}",
@@ -40,6 +55,7 @@
     {
       "name": "bastion_user",
       "type": "string",
+      "group_name": "bastion",
       "hidden": true,
       "description": "Bastion user for ssh proxy",
       "default": "${bastionhost.bastion_user}",
@@ -50,6 +66,7 @@
     {
       "name": "bastion_private_key",
       "type": "string",
+      "group_name": "bastion",
       "hidden": true,
       "description": "Bastion private key for ssh proxy",
       "default": "${bastionhost.bastion_private_key}",
@@ -60,6 +77,7 @@
     {
       "name": "bastion_password",
       "type": "string",
+      "group_name": "bastion",
       "hidden": true,
       "description": "Bastion user password for ssh proxy",
       "default": "${bastionhost.bastion_password}",
@@ -70,6 +88,7 @@
     {
       "name": "bastion_host_key",
       "type": "string",
+      "group_name": "bastion",
       "hidden": true,
       "description": "Bastion host public key for ssh proxy",
       "default": "${bastionhost.bastion_host_key}",
@@ -78,171 +97,151 @@
       "required": false
     },
     {
-      "name": "boot_node_ip",
-      "description": "IP address of the boot node",
+      "name": "mcm_url",
       "type": "string",
-      "required": true,
+      "description": "URL, including port, for the MCM hub cluster",
+      "default": "${mcm_controller.icp_url}",
+      "hidden": false,
+      "label": "MCM URL",
       "secured": false,
-      "label": "Boot Node IP Address",
-      "hidden": false,
+      "required": true,
       "immutable": false,
-      "group_name": "ICP"
+      "group_name": "mcmhub"
     },
     {
-      "name": "vm_os_user",
-      "description": "The user name to use while configuring the IBM Cloud Private Boot Node",
-      "default": "root",
+      "name": "mcm_admin_user",
       "type": "string",
-      "required": true,
+      "description": "Username for connecting to the MCM hub cluster",
+      "default": "${mcm_controller.icp_admin_user}",
+      "hidden": false,
+      "label": "MCM Admin User Name",
       "secured": false,
-      "label": "Boot Node User Name",
-      "hidden": false,
-      "immutable": false,
-      "group_name": "ICP"
-    },
-    {
-      "name": "vm_os_private_key",
-      "description": "Private SSH key to use while configuring the IBM Cloud Private boot node (base64 encoded)",
-      "default": "",
-      "type": "string",
-      "required": false,
-      "secured": true,
-      "label": "Boot Node User Private SSH Key (base64 encoded)",
-      "hidden": false,
-      "immutable": false,
-      "group_name": "ICP"
-    },    
-    {
-      "name": "vm_os_password",
-      "description": "The user password to use while configuring the IBM Cloud Private boot node. Either the password or the private key should be provided.",
-      "type": "password",
-      "required": false,
-      "secured": true,
-      "label": "Boot Node User Password",
-      "hidden": false,
-      "immutable": false,
-      "group_name": "ICP"
-    },
-    {
-      "name": "icp_admin_user",
-      "description": "The user name to use while configuring the IBM Cloud Private",
-      "default": "admin",
-      "type": "string",
       "required": true,
-      "secured": false,
-      "label": "ICP Admin User Name",
-      "hidden": false,
       "immutable": false,
-      "group_name": "ICP"
+      "group_name": "mcmhub"
     },
     {
-      "name": "icp_admin_user_password",
-      "description": "The user password to use while configuring the IBM Cloud Private",
-      "type": "password",
-      "required": true,
-      "secured": true,
-      "label": "ICP Admin User Password",
+      "name": "mcm_admin_password",
+      "type": "string",
+      "description": "Password for authenticating with the MCM hub cluster",
+      "default": "${mcm_controller.icp_admin_password}",
       "hidden": false,
+      "label": "MCM Admin User Password",
+      "secured": true,
+      "required": true,
       "immutable": false,
-      "group_name": "ICP"
+      "group_name": "mcmhub"
     },
     {
       "name": "cluster_name",
-      "description": "Deployed IBM Cloud Private Cluster Name",
-      "default": "mycluster",
       "type": "string",
-      "required": false,
-      "secured": false,
-      "label": "IBM Cloud Private Cluster Name",
+      "description": "Name of the target cluster",
       "hidden": false,
-      "immutable": false,
-      "regex": "^[a-z0-9.-]{1,80}$",
-      "group_name": "ICP"
-    },
-    {
-      "name": "cluster_ca_name",
-      "description": "Kubernetes CA domain of the cluster , like mycluster.icp",
-      "default": "mycluster.icp",
-      "type": "string",
-      "required": false,
+      "label": "Cluster Name",
       "secured": false,
-      "label": "IBM Cloud Private Cluster CA Name",
-      "hidden": false,
-      "immutable": false,
-      "regex": "^[a-z0-9.-]{1,80}$",
-      "group_name": "ICP"
-    },
-    {
-      "name": "cluster_docker_registry_server_name",
-      "description": "ICP internal registry server name (usually deployed on the boot server), used for loading the MCM docker images into",
-      "default": "mycluster.icp",
-      "type": "string",
-      "required": false,
-      "secured": false,
-      "label": "IBM Cloud Private Registry Server Name",
-      "hidden": false,
-      "immutable": false,
-      "regex": "^[a-z0-9.-]{1,80}$",
-      "group_name": "ICP"
-    },
-    {
-      "name": "mcm_binary_url",
-      "description": "Location of the MCM Binaries used by IBM Cloud Private",
-      "type": "string",
       "required": true,
-      "secured": false,
-      "label": "MCM Download Location (http|https|ftp|file)",
-      "hidden": false,
       "immutable": false,
-      "regex": "(https?|ftp|file)://[-A-Za-z0-9\\+&@#/%?=~_|!:,.;]*[-A-Za-z0-9\\+&@#/%=~_|]",
-      "regexdesc": "http|https|ftp|file Location to download the IBM Cloud Private Binaries",
-      "group_name": "MCM"
+      "group_name": "kubecluster"
     },
     {
-      "name": "download_user",
-      "description": "Username to access a secure repository location",
+      "name": "cluster_namespace",
       "type": "string",
-      "required": false,
-      "secured": false,
-      "label": "Repository User Name (Optional)",
+      "description": "Namespace within the hub cluster into which the target cluster will be imported; Defaults to cluster name",
       "hidden": false,
+      "label": "Cluster Namespace",
+      "secured": false,
+      "required": false,
       "immutable": false,
-      "group_name": "MCM"
+      "group_name": "kubecluster"
     },
     {
-      "name": "download_user_password",
-      "description": "Password for the Username to access a secure repository location",
-      "type": "password",
-      "required": false,
+      "name": "icp_url",
+      "type": "string",
+      "description": "URL for ICP API Server",
+      "hidden": false,
+      "label": "ICP URL",
+      "secured": false,
+      "required": true,
+      "immutable": false,
+      "group_name": "kubecluster"
+    },
+    {
+      "name": "icp_admin_user",
+      "type": "string",
+      "description": "Username for connecting to the ICP API server",
+      "hidden": false,
+      "label": "ICP Admin User Name",
+      "secured": false,
+      "required": true,
+      "immutable": false,
+      "group_name": "kubecluster"
+    },
+    {
+      "name": "icp_admin_password",
+      "type": "string",
+      "description": "Password for connecting to the ICP API server",
+      "hidden": false,
+      "label": "ICP Admin User Password",
       "secured": true,
-      "label": "Repository User Password (Optional)",
-      "hidden": false,
+      "required": true,
       "immutable": false,
-      "group_name": "MCM"
+      "group_name": "kubecluster"
     },
     {
-      "name": "secret_name",
-      "description": "MCM secret name to be created on the ICP cluster",
-      "default": "mcm-secret",
+      "name": "image_registry",
       "type": "string",
-      "required": false,
-      "secured": false,
-      "label": "IBM MCM Secret Name",
+      "description": "URL for private docker registry from which klusterlet images will be pulled",
       "hidden": false,
+      "label": "Image Registry",
+      "secured": false,
+      "required": false,
       "immutable": false,
-      "regex": "^[a-z0-9.-]{1,80}$",
-      "group_name": "MCM"
+      "group_name": "registry"
+    },
+    {
+      "name": "image_suffix",
+      "type": "string",
+      "description": "Suffix (e.g. platform type) to be appended to image name",
+      "hidden": false,
+      "label": "Image Suffix",
+      "secured": false,
+      "required": false,
+      "immutable": false,
+      "group_name": "registry"
+    },
+    {
+      "name": "image_version",
+      "type": "string",
+      "description": "Version (tag) of the MCM image to be pulled",
+      "hidden": false,
+      "label": "Image Version",
+      "secured": false,
+      "required": false,
+      "immutable": false,
+      "group_name": "registry"
+    },
+    {
+      "name": "docker_user",
+      "type": "string",
+      "description": "Username for authenticating with the private docker registry",
+      "hidden": false,
+      "label": "Docker User",
+      "secured": false,
+      "required": false,
+      "immutable": false,
+      "group_name": "registry"
+    },
+    {
+      "name": "docker_password",
+      "type": "string",
+      "description": "Password for authenticating with the private docker registry",
+      "hidden": false,
+      "label": "Docker Password",
+      "secured": true,
+      "required": false,
+      "immutable": false,
+      "group_name": "registry"
     }
   ],
-  "template_output_params": [
-    {
-      "name": "ibm_cloud_private_boot_ip",
-      "type": "url",
-      "description": "IBM Cloud Private Cluster Boot Node IP.",
-      "hidden": false,
-      "label": "IBM Cloud Private Cluster Boot Node IP",
-      "shortname": "IBM Cloud Private Console",
-      "secured": false
-    }
-  ]
+  "template_output_params": []
 }

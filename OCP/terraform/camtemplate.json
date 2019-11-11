@@ -1,6 +1,6 @@
 {
-  "name": "MCM Klusterlet within IBM Cloud Kubernetes Service",
-  "description": "MCM Klusterlet within IBM Cloud Kubernetes Service",
+  "name": "Import OpenShift Container Platform Kubernetes cluster into MCM hub-cluster",
+  "description": "Import an existing OpenShift Container Platform (OCP) Kubernetes cluster into a MCM hub-cluster",
   "version": "1.0",
   "type": "prebuilt",
   "manifest": {
@@ -15,14 +15,14 @@
     "template_source": {
       "githubRepoUrl": "",
       "githubAccessToken": "",
-      "relativePathToTemplateFolder": "IKS/mcm-klusterlet",
+      "relativePathToTemplateFolder": "OCP/terraform",
       "templateFileName": "main.tf"
     }
   },
   "metadata": {
-    "displayName": "MCM Klusterlet within IBM Cloud Kubernetes Service",
+    "displayName": "Import OpenShift Container Platform Kubernetes cluster into MCM hub-cluster",
     "providerDisplayName": "Other",
-    "longDescription": "MCM Klusterlet within IBM Cloud Kubernetes Service",
+    "longDescription": "Import an existing OpenShift Container Platform (OCP) Kubernetes cluster into a MCM hub-cluster",
     "bullets": [
       {
         "title": "Clouds",

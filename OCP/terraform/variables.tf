@@ -19,16 +19,16 @@ variable "cluster_namespace" {
   default = ""
 }
 
-variable "icp_url" {
-  description = "URL for ICP API Server"
+variable "ocp_url" {
+  description = "URL for OCP API Server"
 }
 
-variable "icp_admin_user" {
-  description = "Username for connecting to the ICP API server"
+variable "ocp_admin_user" {
+  description = "Username for connecting to the OCP API server"
 }
 
-variable "icp_admin_password" {
-  description = "Password for connecting to the ICP API server"
+variable "ocp_admin_password" {
+  description = "Password for connecting to the OCP API server"
 }
 
 variable "image_registry" {

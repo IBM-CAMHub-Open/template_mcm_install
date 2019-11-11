@@ -2,18 +2,16 @@ resource "random_string" "random-dir" {
   length  = 8
   special = false
 }
-
 module "cluster-credentials" {
   source  = "git::https://github.com/IBM-CAMHub-Open/template_mcm_modules.git?ref=3.2.1//cluster_credentials"
-  
-  cluster_type        = "icp"
+
+  cluster_type        = "gke"
   work_directory      = "mcm${random_string.random-dir.result}"
 
   ## Details for accessing the target cluster
-  cluster_name        = "${var.cluster_name}"
-  icp_url             = "${var.icp_url}"
-  icp_admin_user      = "${var.icp_admin_user}"
-  icp_admin_password  = "${var.icp_admin_password}"
+  cluster_name                = "${var.cluster_name}"
+  cluster_config              = "${var.cluster_config}"
+  service_account_credentials = "${var.service_account_credentials}"
 
   ## Access to optional bastion host
   bastion_host        = "${var.bastion_host}"
@@ -29,7 +27,7 @@ module "cluster-import" {
   
   dependsOn           = "${module.cluster-credentials.credentials_generated}"
   work_directory      = "mcm${random_string.random-dir.result}"
-
+  
   ## Details for accessing the MCM hub-cluster
   mcm_url             = "${var.mcm_url}"
   mcm_admin_user      = "${var.mcm_admin_user}"

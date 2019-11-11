@@ -11,24 +11,16 @@ variable "mcm_admin_password" {
 }
 
 variable "cluster_name" {
-  description = "Name of the ICP cluster"
+  description = "Name of the AKS cluster"
+}
+
+variable "cluster_config" {
+  description = "kubeconfig file contents (Base64 encoded) for Kubernetes cluster"
 }
 
 variable "cluster_namespace" {
   description = "Namespace on the hub cluster into which the target cluster will be imported"
   default = ""
-}
-
-variable "icp_url" {
-  description = "URL for ICP API Server"
-}
-
-variable "icp_admin_user" {
-  description = "Username for connecting to the ICP API server"
-}
-
-variable "icp_admin_password" {
-  description = "Password for connecting to the ICP API server"
 }
 
 variable "image_registry" {

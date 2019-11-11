@@ -1,114 +1,56 @@
-## Generate unique ID for temporary work directory on docker host
 resource "random_string" "random-dir" {
   length  = 8
   special = false
 }
 
+module "cluster-credentials" {
+  source  = "git::https://github.com/IBM-CAMHub-Open/template_mcm_modules.git?ref=3.2.1//cluster_credentials"
+  
+  cluster_type        = "iks"
+  work_directory      = "mcm${random_string.random-dir.result}"
 
-## Set up local variables to be used
-locals {
-  work_dir = "/tmp/mcm${random_string.random-dir.result}"
-  kubeconfig_data  = "${length(var.cluster_config) > 0 ? base64decode(var.cluster_config) : var.cluster_config}"
-  certificate_data = "${length(var.cluster_certificate_authority) > 0 ? base64decode(var.cluster_certificate_authority) : var.cluster_certificate_authority}"
-  mcm_version = "3.1.1-ce"
+  ## Details for accessing the target cluster
+  cluster_name                  = "${var.cluster_name}"
+  cluster_config                = "${var.cluster_config}"
+  cluster_certificate_authority = "${var.cluster_certificate_authority}"
+
+  ## Access to optional bastion host
+  bastion_host        = "${var.bastion_host}"
+  bastion_user        = "${var.bastion_user}"
+  bastion_private_key = "${var.bastion_private_key}"
+  bastion_port        = "${var.bastion_port}"
+  bastion_host_key    = "${var.bastion_host_key}"
+  bastion_password    = "${var.bastion_password}"
 }
 
+module "cluster-import" {
+  source  = "git::https://github.com/IBM-CAMHub-Open/template_mcm_modules.git?ref=3.2.1//cluster_import"
+  
+  dependsOn           = "${module.cluster-credentials.credentials_generated}"
+  work_directory      = "mcm${random_string.random-dir.result}"
 
-resource "null_resource" "manage-klusterlet" {
-  connection {
-    type = "ssh"
-    user = "${var.user_name}"
-    private_key = "${length(var.private_key) > 0 ? base64decode(var.private_key) : var.private_key}"
-    host = "${var.docker_host}"
-  }
-    
-  provisioner "remote-exec" {
-    inline = [
-      "mkdir -p ${local.work_dir}"
-    ]
-  }
+  ## Details for accessing the MCM hub-cluster
+  mcm_url             = "${var.mcm_url}"
+  mcm_admin_user      = "${var.mcm_admin_user}"
+  mcm_admin_password  = "${var.mcm_admin_password}"
+  
+  ## Details for accessing and importing the target cluster
+  cluster_name        = "${var.cluster_name}"
+  cluster_credentials = "${module.cluster-credentials.credentials_jsonfile}"
+  cluster_namespace   = "${var.cluster_namespace}"
 
-  provisioner "file" {
-    source      = "${path.module}/scripts/manage_klusterlet.sh"
-    destination = "${local.work_dir}/installKlusterlet.sh"
-  }
+  ## If MCM image(s) are to be pulled from a private registry
+  image_registry      = "${var.image_registry}"
+  image_suffix        = "${var.image_suffix}"
+  image_version       = "${var.image_version}"
+  docker_user         = "${var.docker_user}"
+  docker_password     = "${var.docker_password}"
 
-  provisioner "file" {
-    destination = "${local.work_dir}/kube-${var.cluster_name}.yml"
-    content     = <<EOF
-${local.kubeconfig_data}
-EOF
-  }
-
-  provisioner "file" {
-    destination = "${local.work_dir}/ca-${var.cluster_name}.pem"
-    content     = <<EOF
-${local.certificate_data}
-EOF
-  }
-
-  provisioner "file" {
-    destination = "${local.work_dir}/mcm-controller-info.txt"
-    content     = <<EOF
-MCM_ENDPOINT: ${var.mcm_hub_endpoint}
-MCM_TOKEN: ${var.mcm_hub_token}
-EOF
-  }
-
-  provisioner "remote-exec" {
-    inline = [
-      "set -e",
-      "chmod 755 ${local.work_dir}/installKlusterlet.sh",
-      "${local.work_dir}/installKlusterlet.sh -a install -m ${local.mcm_version} -s iks -w ${local.work_dir} -c ${var.cluster_name}",
-      "sudo rm -rf ${local.work_dir}"
-    ]
-  }
-
-
-  provisioner "remote-exec" {
-    when   = "destroy"
-    inline = [
-      "mkdir -p ${local.work_dir}"
-    ]
-  }
-  provisioner "file" {
-    when        = "destroy"
-    source      = "${path.module}/scripts/manage_klusterlet.sh"
-    destination = "${local.work_dir}/uninstallKlusterlet.sh"
-  }
-
-  provisioner "file" {
-    when        = "destroy"
-    destination = "${local.work_dir}/kube-${var.cluster_name}.yml"
-    content     = <<EOF
-${local.kubeconfig_data}
-EOF
-  }
-
-  provisioner "file" {
-    when        = "destroy"
-    destination = "${local.work_dir}/ca-${var.cluster_name}.pem"
-    content     = <<EOF
-${local.certificate_data}
-EOF
-  }
-
-  provisioner "file" {
-    when        = "destroy"
-    destination = "${local.work_dir}/mcm-controller-info.txt"
-    content     = <<EOF
-MCM_ENDPOINT: ${var.mcm_hub_endpoint}
-MCM_TOKEN: ${var.mcm_hub_token}
-EOF
-  }
-
-  provisioner "remote-exec" {
-    when   = "destroy"
-    inline = [
-      "set -e",
-      "chmod 755 ${local.work_dir}/uninstallKlusterlet.sh",
-      "${local.work_dir}/uninstallKlusterlet.sh -a uninstall -m ${local.mcm_version} -s iks -w ${local.work_dir} -c ${var.cluster_name}",
-      "sudo rm -rf ${local.work_dir}"
-    ]
-  }
+  ## Access to optional bastion host
+  bastion_host        = "${var.bastion_host}"
+  bastion_user        = "${var.bastion_user}"
+  bastion_private_key = "${var.bastion_private_key}"
+  bastion_port        = "${var.bastion_port}"
+  bastion_host_key    = "${var.bastion_host_key}"
+  bastion_password    = "${var.bastion_password}"
 }

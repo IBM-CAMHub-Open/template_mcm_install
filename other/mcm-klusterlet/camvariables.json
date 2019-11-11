@@ -6,10 +6,6 @@
       "label": "Bastion Data"
     },
     {
-      "name": "kubeconfig",
-      "label": "Kubernetes cluster data"
-    },
-    {
       "name": "mcm_controller",
       "label": "Connection details for MCM API endpoint and host ICP API server"
     }
@@ -103,7 +99,7 @@
     {
       "name": "mcm_url",
       "type": "string",
-      "description": "URL, including port, for the MCM hub cluster",
+      "description": "URL for MCM API Server",
       "default": "${mcm_controller.icp_url}",
       "hidden": false,
       "label": "MCM URL",
@@ -115,7 +111,7 @@
     {
       "name": "mcm_admin_user",
       "type": "string",
-      "description": "Username for connecting to the MCM hub cluster",
+      "description": "Username for connecting to the MCM API server",
       "default": "${mcm_controller.icp_admin_user}",
       "hidden": false,
       "label": "MCM Admin User Name",
@@ -127,7 +123,7 @@
     {
       "name": "mcm_admin_password",
       "type": "string",
-      "description": "Password for authenticating with the MCM hub cluster",
+      "description": "Password for connecting to the MCM API server",
       "default": "${mcm_controller.icp_admin_password}",
       "hidden": false,
       "label": "MCM Admin User Password",
@@ -140,7 +136,6 @@
       "name": "cluster_name",
       "type": "string",
       "description": "Name of the target cluster",
-      "default": "${kubeconfig.cluster_name}",
       "hidden": false,
       "label": "Cluster Name",
       "secured": false,
@@ -160,26 +155,35 @@
       "group_name": "kubecluster"
     },
     {
-      "name": "cluster_config",
+      "name": "cluster_endpoint",
       "type": "string",
-      "description": "Cluster config file (kubectl), Base64 encoded",
-      "default": "${kubeconfig.cluster_config}",
+      "description": "URL for the target cluster endpoint",
       "hidden": false,
-      "label": "Cluster config",
-      "secured": true,
-      "required": true,
+      "label": "Cluster Endpoint",
+      "secured": false,
+      "required": false,
       "immutable": false,
       "group_name": "kubecluster"
     },
     {
-      "name": "cluster_certificate_authority",
+      "name": "cluster_user",
       "type": "string",
-      "description": "Cluster certificate authority, Base64 encoded",
-      "default": "${kubeconfig.cluster_certificate_authority}",
+      "description": "Username for accessing the target cluster",
       "hidden": false,
-      "label": "Cluster Certificate Authority",
+      "label": "Cluster User",
+      "secured": false,
+      "required": false,
+      "immutable": false,
+      "group_name": "kubecluster"
+    },
+    {
+      "name": "cluster_token",
+      "type": "string",
+      "description": "Token for authenticating with the target cluster",
+      "hidden": false,
+      "label": "Authentication Token",
       "secured": true,
-      "required": true,
+      "required": false,
       "immutable": false,
       "group_name": "kubecluster"
     },

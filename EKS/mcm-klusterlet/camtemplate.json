@@ -1,6 +1,6 @@
 {
-  "name": "MCM Klusterlet within IBM Cloud Kubernetes Service",
-  "description": "MCM Klusterlet within IBM Cloud Kubernetes Service",
+  "name": "MCM Klusterlet within Amazon EC2 Kubernetes Service",
+  "description": "MCM Klusterlet within Amazon EC2 Kubernetes Service",
   "version": "1.0",
   "type": "prebuilt",
   "manifest": {
@@ -15,14 +15,14 @@
     "template_source": {
       "githubRepoUrl": "",
       "githubAccessToken": "",
-      "relativePathToTemplateFolder": "IKS/mcm-klusterlet",
+      "relativePathToTemplateFolder": "EKS/mcm-klusterlet",
       "templateFileName": "main.tf"
     }
   },
   "metadata": {
-    "displayName": "MCM Klusterlet within IBM Cloud Kubernetes Service",
+    "displayName": "MCM Klusterlet within Amazon EC2 Kubernetes Service",
     "providerDisplayName": "Other",
-    "longDescription": "MCM Klusterlet within IBM Cloud Kubernetes Service",
+    "longDescription": "MCM Klusterlet within Amazon EC2 Kubernetes Service",
     "bullets": [
       {
         "title": "Clouds",

@@ -1,17 +1,17 @@
 variable "mcm_url" {
-  description = "URL, including port, for the MCM hub cluster",
+  description = "URL for MCM hub cluster"
 }
 
 variable "mcm_admin_user" {
-  description = "Username for connecting to the MCM hub cluster"
+  description = "User name for connecting to the MCM API server"
 }
 
 variable "mcm_admin_password" {
-  description = "Password for authenticating with the MCM hub cluster"
+  description = "Password for connecting to the MCM API server"
 }
 
 variable "cluster_name" {
-  description = "Name of the ICP cluster"
+  description = "Name of the Kubernetes cluster"
 }
 
 variable "cluster_namespace" {
@@ -19,16 +19,16 @@ variable "cluster_namespace" {
   default = ""
 }
 
-variable "icp_url" {
-  description = "URL for ICP API Server"
+variable "cluster_endpoint" {
+  description = "URL for the Kubernetes cluster endpoint"
 }
 
-variable "icp_admin_user" {
-  description = "Username for connecting to the ICP API server"
+variable "cluster_user" {
+  description = "Username for accessing the Kubernetes cluster"
 }
 
-variable "icp_admin_password" {
-  description = "Password for connecting to the ICP API server"
+variable "cluster_token" {
+  description = "Token for authenticating with the Kubernetes cluster"
 }
 
 variable "image_registry" {

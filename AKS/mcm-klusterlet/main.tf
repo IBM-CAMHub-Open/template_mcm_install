@@ -6,14 +6,12 @@ resource "random_string" "random-dir" {
 module "cluster-credentials" {
   source  = "git::https://github.com/IBM-CAMHub-Open/template_mcm_modules.git?ref=3.2.1//cluster_credentials"
   
-  cluster_type        = "icp"
+  cluster_type        = "aks"
   work_directory      = "mcm${random_string.random-dir.result}"
 
   ## Details for accessing the target cluster
   cluster_name        = "${var.cluster_name}"
-  icp_url             = "${var.icp_url}"
-  icp_admin_user      = "${var.icp_admin_user}"
-  icp_admin_password  = "${var.icp_admin_password}"
+  cluster_config      = "${var.cluster_config}"
 
   ## Access to optional bastion host
   bastion_host        = "${var.bastion_host}"

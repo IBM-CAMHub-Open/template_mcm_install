@@ -1,9 +1,9 @@
-# MCM Klusterlet within IBM Cloud Kubernetes Service
+# MCM Klusterlet within Microsoft Azure Kubernetes Service
 Copyright IBM Corp. 2019, 2019
 This code is released under the Apache 2.0 License.
 
 ## Overview
-This terraform template imports an existing Kubernetes cluster within the IBM Kubernetes Service (IKS) into a v3.2.1 MCM hub-cluster.
+This terraform template imports an existing Kubernetes cluster within the Microsoft Azure Kubernetes Service (AKS) into a v3.2.1 MCM hub-cluster.
 
 ## Prerequisites
 * Tiller should not be installed within the Kubernetes cluster
@@ -25,7 +25,6 @@ The terraform template performs the following activities to import the specified
 | cluster_name                    | Name of the target cluster to be imported into the MCM hub cluster | true |
 | cluster_namespace               | Namespace in the hub cluster into which the target cluster will be imported; Defaults to cluster name | |
 | cluster_config                  | kubectl configuration text, Base64 encoded | true |
-| cluster\_certificate\_authority | Certificate for authenticating with cluster, Base64 encoded | true |
 | image_registry                  | URL for private docker registry from which klusterlet images will be pulled | |
 | image_suffix                    | Suffix (e.g. -amd64), corresponding to the platform type, to be appended to image name | |
 | image_version                   | Version/Tag (e.g 3.2.1 or latest) of the MCM image to be pulled | |

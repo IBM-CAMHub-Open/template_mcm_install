@@ -172,18 +172,6 @@
       "group_name": "kubecluster"
     },
     {
-      "name": "cluster_certificate_authority",
-      "type": "string",
-      "description": "Cluster certificate authority, Base64 encoded",
-      "default": "${kubeconfig.cluster_certificate_authority}",
-      "hidden": false,
-      "label": "Cluster Certificate Authority",
-      "secured": true,
-      "required": true,
-      "immutable": false,
-      "group_name": "kubecluster"
-    },
-    {
       "name": "image_registry",
       "type": "string",
       "description": "URL for private docker registry from which klusterlet images will be pulled",

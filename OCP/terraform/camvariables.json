@@ -1,13 +1,8 @@
 {
-  "terraform_engine": "~> 0.11.0",
   "input_datatypes": [
     {
       "name": "bastionhost",
       "label": "Bastion Data"
-    },
-    {
-      "name": "kubeconfig",
-      "label": "Kubernetes cluster data"
     },
     {
       "name": "mcm_controller",
@@ -140,7 +135,6 @@
       "name": "cluster_name",
       "type": "string",
       "description": "Name of the target cluster",
-      "default": "${kubeconfig.cluster_name}",
       "hidden": false,
       "label": "Cluster Name",
       "secured": false,
@@ -160,24 +154,33 @@
       "group_name": "kubecluster"
     },
     {
-      "name": "cluster_config",
+      "name": "ocp_url",
       "type": "string",
-      "description": "Cluster config file (kubectl), Base64 encoded",
-      "default": "${kubeconfig.cluster_config}",
+      "description": "URL for OCP API Server",
       "hidden": false,
-      "label": "Cluster config",
-      "secured": true,
+      "label": "OCP URL",
+      "secured": false,
       "required": true,
       "immutable": false,
       "group_name": "kubecluster"
     },
     {
-      "name": "cluster_certificate_authority",
+      "name": "ocp_admin_user",
       "type": "string",
-      "description": "Cluster certificate authority, Base64 encoded",
-      "default": "${kubeconfig.cluster_certificate_authority}",
+      "description": "Username for connecting to the OCP API server",
       "hidden": false,
-      "label": "Cluster Certificate Authority",
+      "label": "OCP Admin User Name",
+      "secured": false,
+      "required": true,
+      "immutable": false,
+      "group_name": "kubecluster"
+    },
+    {
+      "name": "ocp_admin_password",
+      "type": "string",
+      "description": "Password for connecting to the OCP API server",
+      "hidden": false,
+      "label": "OCP Admin User Password",
       "secured": true,
       "required": true,
       "immutable": false,

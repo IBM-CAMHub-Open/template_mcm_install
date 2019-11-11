@@ -1,47 +1,64 @@
 {
-    "name": "IBM Multicloud Manager",
-    "description": "This template will install IBM Multicloud Manager",
-    "version": "1.0",
-    "imageUrl": "",
-    "image": "",
-    "type": "prebuilt",
-    "status": "active",
-    "manifest": {
-      "template_type": "Terraform",
-      "template_format": "HCL",
-      "template_provider": "Other",
-      "template": {
-        "templateData": "",
-        "templateVariables": "",
-        "templateOutput": ""
-      },
-      "template_source": {
-        "githubRepoUrl": "",
-        "githubAccessToken": "",
-        "relativePathToTemplateFolder": "ICP/terraform",
-        "templateFileName": "main.tf"
-      }
+  "name": "IBM Multicloud Manager Klusterlet on IBM Cloud Private",
+  "description": "This terraform template imports an existing IBM Cloud Private cluster to a IBM Multicloud Manager Controller (Hub Cluster).",
+  "version": "1.0",
+  "type": "prebuilt",
+  "manifest": {
+    "template_type": "Terraform",
+    "template_format": "HCL",
+    "template_provider": "Other",
+    "template": {
+      "templateData": "",
+      "templateVariables": "",
+      "templateOutput": ""
     },
-    "metadata": {
-      "displayName": "IBM Multicloud Manager",
-      "providerDisplayName": "",
-      "longDescription": "This template will install IBM Multicloud Manager",
-      "bullets": [
-{
-    "title": "Usage and Special Notes",
-    "description": "1. IBM Knowledge Center for IBM Cloud Private - <a href=\"https://www.ibm.com/support/knowledgecenter/en/SSBS6K/product_welcome_cloud_private.html\" target=\"_blank\">https://www.ibm.com/support/knowledgecenter/en/SSBS6K/product_welcome_cloud_private.html</a><br>2. IBM Support Portal - <a href=\"https://www.ibm.com/support/home/\" target=\"_blank\">https://www.ibm.com/support/home/</a><br>"
-},
-{
-  "title": "Operating Systems Supported",
-  "description": "Ubuntu 16<br>"}
-],
-      "featuredImageUrl": "",
-      "imageUrl": "",
-      "mediumImageUrl": "",
-      "smallImageUrl": "",
-      "documentationUrl": "",
-      "termsUrl": "",
-      "media": [
-      ]
+    "template_source": {
+      "githubRepoUrl": "",
+      "githubAccessToken": "",
+      "relativePathToTemplateFolder": "ICP/terraform",
+      "templateFileName": "main.tf"
     }
+  },
+  "metadata": {
+    "displayName": "IBM Multicloud Manager Klusterlet on IBM Cloud Private",
+    "providerDisplayName": "Other",
+    "longDescription": "This terraform template imports an existing IBM Cloud Private cluster to a IBM Multicloud Manager Controller (Hub Cluster).",
+    "bullets": [
+      {
+        "title": "Clouds",
+        "description": "Other"
+      },
+      {
+        "title": "Topology",
+        "description": "MCM Klusterlet"
+      },
+      {
+        "title": "Software deployed",
+        "description": "<ol class=\"list-numbering\"><li>MCM Klusterlet</li></ol>"
+      }
+    ],
+    "featuredImageUrl": "https://ibmpatternengine-staticcontent-prod.eu-gb.mybluemix.net/ic_patternengine_50.png",
+    "imageUrl": "https://ibmpatternengine-staticcontent-prod.eu-gb.mybluemix.net/ic_patternengine_50.png",
+    "mediumImageUrl": "https://ibmpatternengine-staticcontent-prod.eu-gb.mybluemix.net/ic_patternengine_32.png",
+    "smallImageUrl": "https://ibmpatternengine-staticcontent-prod.eu-gb.mybluemix.net/ic_patternengine_24.png",
+    "documentationUrl": "https://console.stage1.ng.bluemix.net/docs/services/CloudAutomationManager/index.html",
+    "termsUrl": "http://www-03.ibm.com/software/sla/sladb.nsf/sla/bm-7448-01",
+    "media": [
+      {
+        "type": "image",
+        "thumbnailUrl": "https://ibmpatternengine-staticcontent-prod.eu-gb.mybluemix.net/screenshots_1.png",
+        "url": "https://ibmpatternengine-staticcontent-prod.eu-gb.mybluemix.net/screenshots_1_large.png",
+        "caption": ""
+      },
+      {
+        "type": "image",
+        "thumbnailUrl": "https://ibmpatternengine-staticcontent-prod.eu-gb.mybluemix.net/screenshots_2.png",
+        "url": "https://ibmpatternengine-staticcontent-prod.eu-gb.mybluemix.net/screenshots_2_large.png",
+        "caption": ""
+      }
+    ]
+  },
+  "toolchain": {
+    "git": "https://github.com/ibmcam/cam-toolchain"
+  }
 }
