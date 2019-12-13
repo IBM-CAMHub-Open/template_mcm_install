@@ -169,6 +169,17 @@
       "group_name": "kubecluster"
     },
     {
+      "name": "ocp_oauth_url",
+      "type": "string",
+      "description": "URL for OCP OAUTH Server, for retrieving access token to OCP cluster",
+      "hidden": false,
+      "label": "OCP OAUTH URL",
+      "secured": false,
+      "required": false,
+      "immutable": false,
+      "group_name": "kubecluster"
+    },
+    {
       "name": "ocp_admin_user",
       "type": "string",
       "description": "Username for connecting to the OCP API server",

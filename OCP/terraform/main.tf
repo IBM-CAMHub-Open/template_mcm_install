@@ -12,6 +12,7 @@ module "cluster-credentials" {
   ## Details for accessing the target cluster
   cluster_name        = "${var.cluster_name}"
   ocp_url             = "${var.ocp_url}"
+  ocp_oauth_url       = "${var.ocp_oauth_url}"
   ocp_admin_user      = "${var.ocp_admin_user}"
   ocp_admin_password  = "${var.ocp_admin_password}"
 

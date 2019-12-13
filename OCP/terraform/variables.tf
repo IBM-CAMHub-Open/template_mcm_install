@@ -23,6 +23,11 @@ variable "ocp_url" {
   description = "URL for OCP API Server"
 }
 
+variable "ocp_oauth_url" {
+  description = "URL for OCP OAUTH Server"
+  default = ""
+}
+
 variable "ocp_admin_user" {
   description = "Username for connecting to the OCP API server"
 }
