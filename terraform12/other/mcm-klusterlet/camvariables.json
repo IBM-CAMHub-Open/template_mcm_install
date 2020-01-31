@@ -1,0 +1,251 @@
+{
+  "terraform_version": "~> 0.12.0",
+  "input_datatypes": [
+    {
+      "name": "bastionhost",
+      "label": "Bastion Data"
+    },
+    {
+      "name": "mcm_controller",
+      "label": "Connection details for MCM API endpoint and host ICP API server"
+    }
+  ],
+  "output_datatypes": [],
+  "input_groups": [
+    {
+      "name": "bastion",
+      "label": "Bastion host variables"
+    },
+    {
+      "name": "kubecluster",
+      "label": "Kubernetes Cluster"
+    },
+    {
+      "name": "mcmhub",
+      "label": "MCH Hub Cluster"
+    },
+    {
+      "name": "registry",
+      "label": "Private Image Registry"
+    }
+  ],
+  "template_input_params": [
+    {
+      "name": "bastion_host",
+      "type": "string",
+      "group_name": "bastion",
+      "hidden": true,
+      "description": "Bastion host for ssh proxy",
+      "default": "${bastionhost.bastion_host}",
+      "label": "Bastion host",
+      "secured": false,
+      "required": false
+    },
+    {
+      "name": "bastion_port",
+      "type": "string",
+      "group_name": "bastion",
+      "hidden": true,
+      "description": "Bastion port for ssh proxy",
+      "default": "${bastionhost.bastion_port}",
+      "label": "Bastion port",
+      "secured": false,
+      "required": false
+    },
+    {
+      "name": "bastion_user",
+      "type": "string",
+      "group_name": "bastion",
+      "hidden": true,
+      "description": "Bastion user for ssh proxy",
+      "default": "${bastionhost.bastion_user}",
+      "label": "Bastion user",
+      "secured": false,
+      "required": false
+    },
+    {
+      "name": "bastion_private_key",
+      "type": "string",
+      "group_name": "bastion",
+      "hidden": true,
+      "description": "Bastion private key for ssh proxy",
+      "default": "${bastionhost.bastion_private_key}",
+      "label": "Bastion private key",
+      "secured": true,
+      "required": false
+    },
+    {
+      "name": "bastion_password",
+      "type": "string",
+      "group_name": "bastion",
+      "hidden": true,
+      "description": "Bastion user password for ssh proxy",
+      "default": "${bastionhost.bastion_password}",
+      "label": "Bastion user password",
+      "secured": true,
+      "required": false
+    },
+    {
+      "name": "bastion_host_key",
+      "type": "string",
+      "group_name": "bastion",
+      "hidden": true,
+      "description": "Bastion host public key for ssh proxy",
+      "default": "${bastionhost.bastion_host_key}",
+      "label": "Bastion host key",
+      "secured": false,
+      "required": false
+    },
+    {
+      "name": "mcm_url",
+      "type": "string",
+      "description": "URL for MCM API Server",
+      "default": "${mcm_controller.icp_url}",
+      "hidden": false,
+      "label": "MCM URL",
+      "secured": false,
+      "required": true,
+      "immutable": false,
+      "group_name": "mcmhub"
+    },
+    {
+      "name": "mcm_admin_user",
+      "type": "string",
+      "description": "Username for connecting to the MCM API server",
+      "default": "${mcm_controller.icp_admin_user}",
+      "hidden": false,
+      "label": "MCM Admin User Name",
+      "secured": false,
+      "required": true,
+      "immutable": false,
+      "group_name": "mcmhub"
+    },
+    {
+      "name": "mcm_admin_password",
+      "type": "string",
+      "description": "Password for connecting to the MCM API server",
+      "default": "${mcm_controller.icp_admin_password}",
+      "hidden": false,
+      "label": "MCM Admin User Password",
+      "secured": true,
+      "required": true,
+      "immutable": false,
+      "group_name": "mcmhub"
+    },
+    {
+      "name": "cluster_name",
+      "type": "string",
+      "description": "Name of the target cluster",
+      "regex": "^([a-z0-9\\-\\.]{1,253})$",
+      "regexdesc": "Name up to 253 characters long; Permitted characters include digits (0-9), lowercase letters (a-z), dash (-) and period (.)",
+      "hidden": false,
+      "label": "Cluster Name",
+      "secured": false,
+      "required": true,
+      "immutable": false,
+      "group_name": "kubecluster"
+    },
+    {
+      "name": "cluster_namespace",
+      "type": "string",
+      "description": "Namespace within the hub cluster into which the target cluster will be imported; Defaults to cluster name",
+      "regex": "^([a-z0-9\\-\\.]{1,253})$",
+      "regexdesc": "Name up to 253 characters long; Permitted characters include digits (0-9), lowercase letters (a-z), dash (-) and period (.)",
+      "hidden": false,
+      "label": "Cluster Namespace",
+      "secured": false,
+      "required": false,
+      "immutable": false,
+      "group_name": "kubecluster"
+    },
+    {
+      "name": "cluster_endpoint",
+      "type": "string",
+      "description": "URL for the target cluster endpoint",
+      "hidden": false,
+      "label": "Cluster Endpoint",
+      "secured": false,
+      "required": false,
+      "immutable": false,
+      "group_name": "kubecluster"
+    },
+    {
+      "name": "cluster_user",
+      "type": "string",
+      "description": "Username for accessing the target cluster",
+      "hidden": false,
+      "label": "Cluster User",
+      "secured": false,
+      "required": false,
+      "immutable": false,
+      "group_name": "kubecluster"
+    },
+    {
+      "name": "cluster_token",
+      "type": "string",
+      "description": "Token for authenticating with the target cluster",
+      "hidden": false,
+      "label": "Authentication Token",
+      "secured": true,
+      "required": false,
+      "immutable": false,
+      "group_name": "kubecluster"
+    },
+    {
+      "name": "image_registry",
+      "type": "string",
+      "description": "URL for private docker registry from which klusterlet images will be pulled",
+      "hidden": false,
+      "label": "Image Registry",
+      "secured": false,
+      "required": false,
+      "immutable": false,
+      "group_name": "registry"
+    },
+    {
+      "name": "image_suffix",
+      "type": "string",
+      "description": "Suffix (e.g. platform type) to be appended to image name",
+      "hidden": false,
+      "label": "Image Suffix",
+      "secured": false,
+      "required": false,
+      "immutable": false,
+      "group_name": "registry"
+    },
+    {
+      "name": "image_version",
+      "type": "string",
+      "description": "Version (tag) of the MCM image to be pulled",
+      "hidden": false,
+      "label": "Image Version",
+      "secured": false,
+      "required": false,
+      "immutable": false,
+      "group_name": "registry"
+    },
+    {
+      "name": "docker_user",
+      "type": "string",
+      "description": "Username for authenticating with the private docker registry",
+      "hidden": false,
+      "label": "Docker User",
+      "secured": false,
+      "required": false,
+      "immutable": false,
+      "group_name": "registry"
+    },
+    {
+      "name": "docker_password",
+      "type": "string",
+      "description": "Password for authenticating with the private docker registry",
+      "hidden": false,
+      "label": "Docker Password",
+      "secured": true,
+      "required": false,
+      "immutable": false,
+      "group_name": "registry"
+    }
+  ],
+  "template_output_params": []
+}
