@@ -15,7 +15,7 @@
     "template_source": {
       "githubRepoUrl": "",
       "githubAccessToken": "",
-      "relativePathToTemplateFolder": "other/mcm-klusterlet",
+      "relativePathToTemplateFolder": "terraform12/other/mcm-klusterlet",
       "templateFileName": "main.tf"
     }
   },

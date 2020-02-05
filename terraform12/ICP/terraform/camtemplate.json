@@ -15,7 +15,7 @@
     "template_source": {
       "githubRepoUrl": "",
       "githubAccessToken": "",
-      "relativePathToTemplateFolder": "ICP/terraform",
+      "relativePathToTemplateFolder": "terraform12/ICP/terraform",
       "templateFileName": "main.tf"
     }
   },
