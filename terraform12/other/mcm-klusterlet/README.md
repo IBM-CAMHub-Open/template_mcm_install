@@ -3,7 +3,7 @@ Copyright IBM Corp. 2019, 2019
 This code is released under the Apache 2.0 License.
 
 ## Overview
-This terraform template imports an existing Kubernetes cluster within the IBM Cloud Kubernetes Service (IKS) into a v3.2.0 MCM hub-cluster. 
+This terraform template is a generic template that imports an existing Kubernetes cluster into a v3.2.1 MCM hub-cluster.
 
 ## Prerequisites
 * Tiller should not be installed within the Kubernetes cluster
