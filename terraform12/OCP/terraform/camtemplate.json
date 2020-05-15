@@ -1,0 +1,64 @@
+{
+  "name": "Import OpenShift Container Platform Kubernetes cluster into MCM hub-cluster for Terraform 0.12.x",
+  "description": "Import an existing OpenShift Container Platform (OCP) Kubernetes cluster into a MCM hub-cluster",
+  "version": "5.0.0",
+  "type": "prebuilt",
+  "manifest": {
+    "template_type": "Terraform",
+    "template_format": "HCL",
+    "template_provider": "Other",
+    "template": {
+      "templateData": "",
+      "templateVariables": "",
+      "templateOutput": ""
+    },
+    "template_source": {
+      "githubRepoUrl": "",
+      "githubAccessToken": "",
+      "relativePathToTemplateFolder": "terraform12/OCP/terraform",
+      "templateFileName": "main.tf"
+    }
+  },
+  "metadata": {
+    "displayName": "Import OpenShift Container Platform Kubernetes cluster into MCM hub-cluster",
+    "providerDisplayName": "Other",
+    "longDescription": "Import an existing OpenShift Container Platform (OCP) Kubernetes cluster into a MCM hub-cluster",
+    "bullets": [
+      {
+        "title": "Clouds",
+        "description": "Other"
+      },
+      {
+        "title": "Topology",
+        "description": "MCM Klusterlet"
+      },
+      {
+        "title": "Software deployed",
+        "description": "<ol class=\"list-numbering\"><li>MCM Klusterlet</li></ol>"
+      }
+    ],
+    "featuredImageUrl": "https://ibmpatternengine-staticcontent-prod.eu-gb.mybluemix.net/ic_patternengine_50.png",
+    "imageUrl": "https://ibmpatternengine-staticcontent-prod.eu-gb.mybluemix.net/ic_patternengine_50.png",
+    "mediumImageUrl": "https://ibmpatternengine-staticcontent-prod.eu-gb.mybluemix.net/ic_patternengine_32.png",
+    "smallImageUrl": "https://ibmpatternengine-staticcontent-prod.eu-gb.mybluemix.net/ic_patternengine_24.png",
+    "documentationUrl": "https://console.stage1.ng.bluemix.net/docs/services/CloudAutomationManager/index.html",
+    "termsUrl": "http://www-03.ibm.com/software/sla/sladb.nsf/sla/bm-7448-01",
+    "media": [
+      {
+        "type": "image",
+        "thumbnailUrl": "https://ibmpatternengine-staticcontent-prod.eu-gb.mybluemix.net/screenshots_1.png",
+        "url": "https://ibmpatternengine-staticcontent-prod.eu-gb.mybluemix.net/screenshots_1_large.png",
+        "caption": ""
+      },
+      {
+        "type": "image",
+        "thumbnailUrl": "https://ibmpatternengine-staticcontent-prod.eu-gb.mybluemix.net/screenshots_2.png",
+        "url": "https://ibmpatternengine-staticcontent-prod.eu-gb.mybluemix.net/screenshots_2_large.png",
+        "caption": ""
+      }
+    ]
+  },
+  "toolchain": {
+    "git": "https://github.com/ibmcam/cam-toolchain"
+  }
+}
