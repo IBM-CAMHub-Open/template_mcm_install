@@ -11,6 +11,15 @@ The terraform template performs the following activities to import the specified
 * Uses the given Kubernetes cluster details to configure the import process
 * Runs the import commands supported by the IBM Cloud Pak for Multicloud Manager hub-cluster
 
+### Input Data Types
+
+Piror to deploying the template you must create the data objects for the following data types.
+
+| Data Type | Description |
+| :---      | :--- | 
+| kubeconfig | Kubernetes cluster data |
+| mcm_controller | Connection details for IBM CP4MCM API endpoint and host IBM CP4MCM API server |
+
 ## Template input parameters
 
 | Parameter Name                  | Parameter Description | Required |
@@ -18,8 +27,8 @@ The terraform template performs the following activities to import the specified
 | mcm\_url                        | URL, including port, for the MCM hub-cluster | true |
 | mcm\_admin\_user                | User name for connecting to the MCM API server | true |
 | mcm\_admin\_password            | Password for connecting to the MCM API server | true |
-| cluster_name                    | Name of the target cluster to be imported into the MCM hub cluster | true |
-| cluster_namespace               | Namespace in the hub cluster into which the target cluster will be imported; Defaults to cluster name | |
+| cluster_name                    | Name of the target cluster to be imported into the MCM hub cluster. Cluster name can have lower case alphabets, numbers and dash. Must start with lower case alphabet and end with alpha-numeric character. Maximum length is 63 characters. | true |
+| cluster_namespace               | Namespace in the hub cluster into which the target cluster will be imported. Cluster name can have lower case alphabets, numbers and dash. Must start with lower case alphabet and end with alpha-numeric character. Maximum length is 63 characters. Defaults to cluster name if not provided.| |
 | ocp_url                  		  | URL for OCP API Server | true |
 | ocp_oauth_url 				  | URL for OCP OAUTH Server, for retrieving access token to OCP cluster | true |
 | ocp_admin_user                  | Username for connecting to the OCP API server | true |
