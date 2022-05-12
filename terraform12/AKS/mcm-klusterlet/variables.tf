@@ -48,3 +48,7 @@ variable "docker_password" {
   default     = ""
 }
 
+variable "kube_ctl_version" {
+  description = "kubectl to use for import operations"
+  default     = "latest"
+}

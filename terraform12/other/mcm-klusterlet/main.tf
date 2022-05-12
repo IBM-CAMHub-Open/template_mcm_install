@@ -13,7 +13,7 @@ module "cluster-import" {
 
   dependsOn      = "no dependencies"
   work_directory = local.work_directory
-
+  kube_ctl_version    = var.kube_ctl_version
   ## Details for accessing the MCM hub-cluster
   mcm_url            = var.mcm_url
   mcm_admin_user     = var.mcm_admin_user

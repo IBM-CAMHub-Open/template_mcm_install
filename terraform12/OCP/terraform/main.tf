@@ -8,7 +8,7 @@ module "cluster-credentials" {
 
   cluster_type   = "ocp"
   work_directory = "mcm${random_string.random-dir.result}"
-
+  kube_ctl_version    = var.kube_ctl_version
   ## Details for accessing the target cluster
   cluster_name       = var.cluster_name
   ocp_url            = var.ocp_url
@@ -30,7 +30,7 @@ module "cluster-import" {
 
   dependsOn      = module.cluster-credentials.credentials_generated
   work_directory = "mcm${random_string.random-dir.result}"
-
+  kube_ctl_version    = var.kube_ctl_version
   ## Details for accessing the MCM hub-cluster
   mcm_url            = var.mcm_url
   mcm_admin_user     = var.mcm_admin_user
